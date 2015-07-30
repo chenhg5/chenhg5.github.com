@@ -1,54 +1,24 @@
-# Autm-rb
+#Clean Blog by Start Bootstrap - Jekyll Version
 
-Another theme for jekyll.
-based on shiori and midnight
+The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
 
-##[DEMO][demo]
+###[View Live Demo &rarr;](http://ironsummitmedia.github.io/startbootstrap-clean-blog-jekyll/)
 
-features:
+## Before You Begin
 
-- sharebuttons
-- comments via DISQUS
-- google analitics
-- pagination
-- tags
-- codehighlighting
-- bootstrap components
-- font awesome
-- responsive
-- embeded video support
+In the _config.yml file, the base URL is set to /startbootstrap-clean-blog-jekyll which is this themes gh-pages preview. It's recommended that you remove the base URL before working with this theme locally!
 
-#### Contribution
-Pull Requests always welcome.
+It should look like this:
+`baseurl: ""`
 
-## Screens
+## What's Included
 
-![](http://i.imgur.com/i1OZoFF.png)
-![](http://i.imgur.com/oc2ZfjH.png)
+A full Jekyll environment is included with this theme. If you have Jekyll installed, simply run `jekyll serve` in your command line and preview the build in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
 
-## Installation
+A Grunt environment is also included. There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering `grunt` into your command line which will build the files. You can use `grunt watch` if you are working on the JavaScript or the LESS.
 
-- [Fork this repository][fork]
-- Clone it: `git clone https://github.com/YOUR-USER/autm-rb`
-- Install the [GitHub Pages gem][pages] (includes Jekyll): `bundle install`
-- Run the jekyll server: `jekyll serve` or `bundle exec jekyll serve`
+You can run `jekyll serve --watch` and `grunt watch` at the same time to watch for changes and then build them all at once.
 
-## Customization
+## Support
 
-Edit this files before using 
- 
-- _config.yml REQUIRED
-- /index.html - change the default image and email
-- /projects.html - here you can share some of your projects
-- /resume.html - write something about you
-- /favicon.ico change it or leave the existing one
-- _includes/title.html REQUIRED
-
-## Licensing
-
-[MIT](https://github.com/railsr/autm-rb/blob/master/LICENSE) Feel free to use and edit.
-
-
-[pages]: http://pages.github.com
-[fork]: https://github.com/railsr/autm-rb/fork
-[demo]: http://railsr.github.io/autm-rb/
+Visit Clean Blog's template overview page on Start Bootstrap at http://startbootstrap.com/template-overviews/clean-blog/ and leave a comment, email feedback@startbootstrap.com, or open an issue here on GitHub for support.
