@@ -1,0 +1,14 @@
+---
+layout:     post
+title:      "漫漫创业路"
+subtitle:   "我的创业故事"
+date:       2015-08-02 12:00:00
+author:     "HonKui"
+header-img: "img/post-bg-01.jpg"
+---
+
+<p>创业的想法很早很早之前就有了，但是并没有找到很好的机会付诸实践。</p>
+
+<p></p>
+
+
