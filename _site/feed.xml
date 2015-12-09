@@ -1,40 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Honkui`s Blog</title>
-    <description>Write your site description here. It will be used as your sites meta description as well!</description>
-    <link>http://chenhg5.github.io/</link>
-    <atom:link href="http://chenhg5.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 02 Aug 2015 11:23:57 +0800</pubDate>
-    <lastBuildDate>Sun, 02 Aug 2015 11:23:57 +0800</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
-    
-      <item>
-        <title>论信仰</title>
-        <description>&lt;p&gt; 从大学一年级到大学三年级即将大学四年级，时间过得很快。从前听着师兄调侃自己是大三大四的老油条，觉得好好笑，而今自己却也已经成为了众多老油条大军中的一员。&lt;/p&gt;
+--- layout: null ---
 
-&lt;p&gt;油条老了，还能吃吗？&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-&lt;p&gt;吃是可以的，只是没那么好吃了。皱了，更油了。回想过去的自己是亮丽有锋芒的，如今呢？算得上“老奸巨猾”了。有时候看到大一的小鲜肉总会有一种莫名优越感，心里有一种冲动想过去拍拍他们的肩膀，说上一句，“你们还年轻呐，慢慢体会。”确实很多事情是看破不说破，如果你没有亲身体验过的话，单看表面可能觉得很深奥，但事后往往不是这样。大脑就是这么奇特，总能营造一种跟现实不一样的感觉，或期待，或崇拜。有如，信仰。&lt;/p&gt;
+  <title>{{ site.title | xml_escape }}</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ site.baseurl }}/" rel="alternate"/>
+  <link /feed.xml" }}" href="{{ site.baseurl | append: " rel="self"/>
+  <rights>Copyright @
+    {{ site.time | date: '%Y' }},
+    {{ site.author_name | xml_escape }}</rights>
+  <icon>{{ site.baseurl }}/assets/favicon.png</icon>
 
-&lt;p&gt;前几天，女票从一家互联网旅游公司辞职了。他们所属团队的人心涣散，很多人都想离开，然而很多人并没有离开。做运营的团队外在看起来很高大，毕竟作为有名气的互联网公司。但实际上是做着“兼职”感觉的工作。作为一名大三大四的有点资质的大学生，去做一份这样的工作显然是不好的。但因为不了解，希望更多的了解，而且工作有着对于大学生来说还不错的工资，所以在离开与不离开的选择上还是选择了留下。&lt;/p&gt;
+  <author>
+    <name>{{ site.author_name | xml_escape }}</name>
+    <email>{{ site.author_email | xml_escape }}</email>
+    <uri>https://twitter.com/{{ site.twitter_username }}</uri>
+  </author>
 
-&lt;p&gt;她走了之后，很多人问她为什么离开，是不是这份工作不好。她都跟他们说不是，让他们加油。其实是不是，经历过才知道。看不看得到希望，也没人说得清楚。从局部到全局来看，你所被灌输的信念和斗志，不一定是“真”的。很可能你跨过了局部边界的那条线之后，你会发现这种斗志是无意义的，这时的你，就慢慢地变成所说的“老油条”。油条老矣，尚能思否？尚能进取否？&lt;/p&gt;
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.baseurl }}/</id>
+  <generator version="{{ jekyll.version }}">Jekyll</generator>
 
-&lt;p&gt;可以，你终究会找到新的信念，投入新的工作。但要明白的是，很可能我们跨越过的局部所进入的全局很可能只是一个更大的局部而已。在这个更大的局部中，我们被灌输以新的斗志新的信念，然后走上新的征程。&lt;/p&gt;
+  {% for post in site.posts limit:40 %}
 
-&lt;p&gt;于是，不断的充满斗志，跨越局部，顿悟迷茫徘徊，充满斗志，跨越......何时我们能打破循环？&lt;/p&gt;
-&lt;blockquote&gt;“时间时间会给我答案。”&lt;/blockquote&gt;
+  {% assign content = post.content | replace: "&#8617;", "&#8617;&#xfe0e;" %}
+  {% assign content = content | replace: "data-lang", "lang" %}
+  {% assign content = content | replace: "<mark>", "<b>" | replace: "</mark>", "</b>" %}
 
-&lt;p&gt;也许回过头来，发现最大的局限是我们的内心，当跨越了内心的时候，就无所谓局部与全局了吧。&lt;/p&gt;
+  <entry>
+    <title type="html">{{ post.title | xml_escape }}</title>
+    <id>{{ post.url | prepend: site.baseurl }}</id>
+    <updated>{{ post.updated | date_to_xmlschema }}</updated>
+    <published>{{ post.path | truncate: 20 | replace: "...", "" | replace: "_posts/", "" }}T10:00:00+02:00</published>
+    <content type="html" xml:lang="en">
+      <![CDATA[{{ content }}]]>
+    </content>
+  </entry>
 
-</description>
-        <pubDate>Sun, 02 Aug 2015 20:00:00 +0800</pubDate>
-        <link>http://chenhg5.github.io/2015/08/02/xinyang/</link>
-        <guid isPermaLink="true">http://chenhg5.github.io/2015/08/02/xinyang/</guid>
-        
-        
-      </item>
-    
-  </channel>
-</rss>
+  {% endfor %}
+
+</feed>
