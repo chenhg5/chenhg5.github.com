@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”： 每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。 如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，突然停止送餐，她心中一定会产生深深的疑惑及失落，同时会满怀兴趣与疑问找到你询问，这时再一鼓作气将其拿下。　　　　 此法借鉴了不朽的生物学家巴甫洛夫之“条件">
+<meta name="keywords" content="技术,GO,golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]科学把妹法">
+<meta property="og:url" content="https://chenhg5.github.io/2015/12/23/2015-12-23-bameifa/index.html">
+<meta property="og:site_name" content="cg33">
+<meta property="og:description" content="[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”： 每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。 如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，突然停止送餐，她心中一定会产生深深的疑惑及失落，同时会满怀兴趣与疑问找到你询问，这时再一鼓作气将其拿下。　　　　 此法借鉴了不朽的生物学家巴甫洛夫之“条件">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-12-23T14:24:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]科学把妹法">
+<meta name="twitter:description" content="[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”： 每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。 如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，突然停止送餐，她心中一定会产生深深的疑惑及失落，同时会满怀兴趣与疑问找到你询问，这时再一鼓作气将其拿下。　　　　 此法借鉴了不朽的生物学家巴甫洛夫之“条件">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="cg33" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenhg5.github.io/2015/12/23/2015-12-23-bameifa/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>[转]科学把妹法 | cg33</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cg33</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/chenhg5" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenhg5.github.io/2015/12/23/2015-12-23-bameifa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cg33">
+      <meta itemprop="description" content="一个喜欢代码的小孩">
+      <meta itemprop="image" content="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cg33">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[转]科学把妹法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-23 21:52:00 / 修改时间：22:24:51" itemprop="dateCreated datePublished" datetime="2015-12-23T21:52:00+08:00">2015-12-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”：</p>
+<p>每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。</p>
+<p>如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，突然停止送餐，她心中一定会产生深深的疑惑及失落，同时会满怀兴趣与疑问找到你询问，这时再一鼓作气将其拿下。　　　　</p>
+<p>此法借鉴了不朽的生物学家巴甫洛夫之“条件反射试验”，故名“巴甫洛夫把妹法”。</p>
+<p>[2].生物界良策在前，物理界岂甘人后！今天，就将向大家隆重推出量子论的胜利—-“薛定谔把妹法”！　　　　　　　　　　　　　　　　　　　　　　　　</p>
+<p>众所周知，为了浅显的说明量子论的概率特性，伟大的薛定谔同志作出过一个假设：　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</p>
+<p>一只猫与一种衰变概率为50%的放射物质同放在一个箱子里(此放射性物质一旦衰变，与盖格计数器相连接的小锤就击碎一个装氰化物的瓶子，然后猫就…挂了)，如果打开箱子，我们可以知道物质是否衰变，猫是否死亡。而在没打开箱子的时候，这猫就处在一个既可能生，又可能已死的“半生半死”的可怜状态。　　　</p>
+<p>这就是：事件在被观察以前，一直处在一个所谓“概率云”的状态下，一旦受到观察，则坍缩为实体。</p>
+<p>以上是引言，正文在此：</p>
+<p>薛定谔把妹法乃是建立在巴甫洛夫把妹法之上的威力加强版：</p>
+<p>每天早上，你拿出一个硬币抛掷，让伟大的随机性来决定今天是否给妹子送早餐。<br>这样，当妹子每天打开抽屉之前，都不知道是否有早餐，而早餐的有无乃是一个独立随机事件，完全无法推测。每天的早餐对于妹子都是一个未知的神秘存在，妹子将逐渐为这一神秘的现象所吸引，最终将不可避免的对这个送餐人产生极大的兴趣，你在她的心中蒙上了神秘的面纱。</p>
+<p>这个谜一样的男子，这一刻薛定谔附体，带着量子论般深沉的哀愁，让她从此不能自拔!</p>
+<p>总结：此帖将“早餐把妹”这样一个物理现象提升到了科学研究的领域，为了深入研究，故开创“早餐把妹学”在此暂设立两条基本假设为公理：</p>
+<p>1 妹早上必然打开抽屉。<br>2 妹能感受到可能放在抽屉里的早餐。(即能感觉到抽屉里有早餐，且对其做出反映)</p>
+<p>请给我这个谜一样的男子，这一刻薛定谔附体，带着量子论般深沉的哀愁，让我从此不能自拔! </p>
+<p>[3].还可以再加强！</p>
+<p>把妹这事儿，少了海森堡怎么行？！</p>
+<p>测不准把妹法加强补丁如下：</p>
+<p>如果抛硬币的结果为当天不送早餐，那么就拍一张本来可能送出的早餐图，显示清楚各种食物、饮料、水果的搭配，包括原料表和营养成分表，放在妹子的抽屉里。</p>
+<p>如果抛硬币的结果是当天送早餐，那么就将准备好的早餐放到搅拌机里，打碎搅拌均匀成糊状，并包好放在妹子的抽屉里。</p>
+<p>这样一来，妹子要么吃得到早餐，但不知道吃的是什么东西；要么很清楚今天早餐食谱，但是吃不到，进而对海森堡的吃不准原理有了更深的体会。</p>
+<p>一颗扑通扑通乱跳的芳心就这样在物理学的强大引力场下被俘获了。 </p>
+<p>[4].还可以再加强！</p>
+<p><strong>华生把妹法和斯金纳把妹法</strong></p>
+<p>华生的把妹方法继承自巴甫洛夫的衣钵，仍然是传统的刺激条件反射， 但是按照华生的理论，纯粹的行为主义者可以喊出这样一句话：</p>
+<p>给我一打女同事，我还你一堆软妹子！</p>
+<p>众所周知经典行为主义将感觉、知觉、激情、情绪等都用刺激和反馈行为来描述。巴普洛夫的条件反射是基于单纯的神经系统，而华生更注意肌肉与腺体。但不论如何，行为主义者的观念中，是通过转换的手法来“清除”意识的，也就是说，他把一些意识内容转换成身体的内部刺激或肌肉的动觉反馈。</p>
+<p>行为主义不在于寻找那种普遍的内省的“妹子”，而在于将一张张白纸塑造成软妹子。</p>
+<p>取一定的样本量，在一批女同事/女同学抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。（S）</p>
+<p>另取同样样本量的女同事/女同学作对照组，两组都安装摄像头和外部体温计观察。</p>
+<p>在一定时间后，早餐的行为形成之后再从原来的组中挑选一半施以午餐反馈行为，对照组将自动离开，而目标组将继续情绪条件反射的习得。（R）</p>
+<p>接下来的晚餐习得和夜宵习得就水到渠成了。</p>
+<p>不过，缺陷是比较费钱！</p>
+<p>不过既然是走养成路线，大撒网的气度就是经典行为主义者的浪漫。</p>
+<p><strong>斯金纳的操作行为主义把妹法</strong></p>
+<p>B.F.斯金纳，新行为主义的旗手</p>
+<p>他对条件反射的进一步理解使得把妹比华生的手段要来得经济而高效。</p>
+<p>首先我们来了解一下斯金纳箱：</p>
+<p>斯金纳关于操作性条件反射作用的实验，是在他设计的一种动物实验仪器即著名的斯金纳箱中进行的。箱内放进一只白鼠或鸽子，并设一杠杆或键，箱子的构造尽可能排除一切外部刺激。动物在箱内可自由活动，当它压杠杆或啄键时，就会有一团食物掉进箱子下方的盘中，动物就能吃到食物。箱外有一装置记录动物的动作。斯金纳的实验与巴甫洛夫的条件反射实验的不同在于：（1）在斯金纳箱中的被试动物可自由活动，而不是被绑在架子上；（2）被试动物的反应不是由已知的某种刺激物引起的，操作性行为（压杠杆或啄键）是获得强化刺激（食物）的手段；（3）反应不是唾液腺活动，而是骨骼肌活动；（4）实验的目的不是揭示大脑皮层活动的规律，而是为了表明刺激与反应的关系，从而有效地控制有机体的行为。</p>
+<p>也就是说，强化行为是把妹的手段和目的。斯金纳认为强化刺激不是与反应同时发生的，也不需要先于反应，而是随着反应发生。有机体必须先做出我们所期望的反应，然后得到“报酬”，就能形成一次有效的正强化。</p>
+<p>那么如何操作呢？</p>
+<p>我们首先看一下TBBT当中Sheldon对Penny的一次实例：当Sheldon发现Penny做出适合自己期望的行为时，就给她一颗巧克力，这就是一次”GOOD Penny”的操作条件，也就是说，我们操作的标志在于“我”对对方有何等的期望，然后才有的放矢地进行操作条件反射和强化的构建。</p>
+<p>当然，负强化的操作也可以参见Sheldon对Lenord的”BAD Lenord”的操作示范（喷水）</p>
+<p>那么推广到把妹法就是这样的：</p>
+<p>操作1：当你心仪的女同事/女同学在无意之间为你做了一点小事，向你认真地微笑，或者称赞你的时候，就在她抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。（她并不知道会是谁放的）</p>
+<p>原则是：她没有对你示好，就不放，她有一点点好，就通过放早餐（正强化），她如果对你表示厌恶，可以用不动声色的负强化（具体的可以参考她讨厌什么）。</p>
+<p>如此以往操作下去（基本上也比较省早餐钱），总之是要比巴甫洛夫来得高效一点。</p>
+<p>操作2：当你心仪的女同事/女同学在无意之间来你房间一次的时候，给她以奶茶的正强化刺激。</p>
+<p>操作3：当你心仪的女同事/女同学在无意之间触碰到你的时候，给她以巧克力的正强化刺激。</p>
+<p>操作4：当你心仪的女同事/女同学在无意之间……给她……的正强化刺激</p>
+<p>…..</p>
+<p>也就是说，强化刺激是可以无处不在的，但是不论如何，负强化是要慎用的，斯金纳等人也指出负强化的效果很难跟正强化相提并论…… </p>
+<p>[5].严肃再加强：</p>
+<p>推荐采用可变-比率程序表 即VR程序表，此程序表产生的反应速率最高，抗消退能力最强。</p>
+<p>即只固定正强化出现的平均次数，但具体出现在那一次是可变的。</p>
+<p>具体而言，当心仪的mm有意无意的做出有利于二人关系的行为时，统计其次数，并在平均正强化量一定的情况下随机的给予正向刺激。</p>
+<p>人们会用一种赌博的心态来对待VR程序表，三番五次的尝试。长此以往，成功在望矣。</p>
+<p>[6].加强版~~</p>
+<p>米尔格拉姆把妹法~</p>
+<p>先说明一下米尔格拉姆实验：随机选择实验参与者做“教师”，关在一个小屋子里，实验设计者假冒“学生”，关在隔壁一个小屋子里，“教师”看不到“学生”但是能听见彼此声音。然后给教师一张问题卡和答案卡，教师隔着墙壁问学生问题，学生答对了就继续问答，答错了就由教师操纵电击学生。每次答错，电击伏特数会加大。而教师听到的是实验者事先准备好的电击声音和尖叫声的录音。</p>
+<p>电压 “学生”的反应</p>
+<table>
+<thead>
+<tr>
+<th>伏特</th>
+<th style="text-align:center">反应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75V</td>
+<td style="text-align:center">嘟囔</td>
+</tr>
+<tr>
+<td>120V</td>
+<td style="text-align:center">痛叫</td>
+</tr>
+<tr>
+<td>150V</td>
+<td style="text-align:center">说，他想退出试验</td>
+</tr>
+<tr>
+<td>200V</td>
+<td style="text-align:center">大叫：“血管里的血都冻住了。”</td>
+</tr>
+<tr>
+<td>300V</td>
+<td style="text-align:center">拒绝回答问题</td>
+</tr>
+<tr>
+<td>超过330 V</td>
+<td style="text-align:center">静默</td>
+</tr>
+</tbody>
+</table>
+<p>实验开始于1961年7月，也就是纳粹党徒阿道夫·艾希曼被抓回耶路撒冷审判，被判死刑后的一年。米尔格拉姆设计了这个实验，便是为了测试“艾希曼以及其他千百万名参与了犹太人大屠杀的纳粹追随者，有没有可能只是单纯的服从了上级的命令呢？我们能称呼他们为大屠杀的凶手吗？”整个实验可能只是设计好，为了测试寻常美国民众会不会遵从命令违背道德良心—如同德国人在纳粹时期一样，而这便是实验的初衷之一。</p>
+<p>以上是实验原型介绍，现在正文开始：</p>
+<p>哥为实验设计者，选择自己心仪的妹子来充当上面这个实验里“教师”的角色。妹子被告知自己应准备好自己最喜欢的早餐食谱以及相关问题，然后隔着墙问哥问题。也是假冒电击，只不过墙另一边除了哥在放被电击的声音之外，还有一个内容丰富应有尽有的冰箱，哥根据妹子的问题给妹子准备早餐。等到电击超过330V哥就静默了，妹子就惭愧地退出实验了，然后一出门就看到哥淫笑着端着妹子心仪的早餐等在实验室外面了。</p>
+<p>于是乎妹子感觉被电击的不是哥，而是自己了~~~~</p>
+<p>[7].帕金森把妹法：明天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐28份，没错也就是四周且包含休息日的量，并且保持缄默不语，无论她如何询问，都不要说话。</p>
+<p>如此只需一天，你那堆满她书桌的早餐一定给她带来了不朽的震惊与惊慌，此时趁她惊魂未定一举拿下。</p>
+<p>此法参考了著名的帕金森法则，帕金森法则认为，任务的重要性和复杂度与所分配的完成任务的时间密切相关。这就是不断迫近的最终时限的魔力。如果给你24小时去完成一项任务，时间的压力促使你集中精力去执行，别无选择只能做最重要的部分。同样的任务，如果给你1周去完成，它就换来了小题大作的6天。如果给你2个月的时间，但愿不要这样，它就变成了一场精神磨难。因为精力更高度集中，短时限内做出的最终产品通常不比长时限内做出来的差，甚至质量更高。 </p>
+<p>[8].爱因斯坦把妹法</p>
+<p>“众所周知”，爱爷在引出广义相对论时提出一个简单的思维实验：在远离星体一望无垠的宇宙空间里，上帝说：“要有电梯。”于是出现了一只电梯。上帝继续说：“要有绳。”于是电梯顶上系了根缆绳。上帝还是有点寂寞，于是边以加速度g拉缆绳边说：“要有人。”于是一个男人呱呱落在了电梯里，一副理工相，谁叫他是男人呢，很自觉地开始研究电梯。上帝造电梯时忘了造窗户，因此理工男对电梯外一无所知，他只晓得自己怎么使劲跳还是会落到电梯底板上来，多次尝试后很命贱地开始研究跳的高度和下落时间的关系（上帝适时地说了“要有实验工具…”）久而久之，他居然算出了g。但丫是个无神论者，懒得管上帝寂不寂寞，他只认电梯底板，认为那个才是宇宙（电梯）中最牛逼的东西，无时无刻不在产生一种被他后来称做“重力”的远距离神秘效应。</p>
+<p>不罗嗦了，回到早餐。早餐在这里必须是类似于重力的一种效应，美妙的口感与脚踏实地都能唤起幸福感，区别仅仅在于姑娘们对前者效应的敏感区集中在舌部。</p>
+<p>我们要学的，正如爱因斯坦老爷可以用一架重力场外加速“上升”的电梯制造出重力的假象，那么，考虑到腰间不那么饱满的钱袋，为何不去制造出早餐的假象呢？</p>
+<p>第1天，夜深人静了，爱因斯坦会在女同学的抽屉里留张纸条：“明早这里将会有份早餐。”</p>
+<p>第2天，姑娘的反应：有人暗恋我？不会是恶作剧吧？开始期待第三天。</p>
+<p>第3天，姑娘还是矜持地自带了早餐，外表平静内心潮涌地打开抽屉。唉伊西——没有早餐！还是一张纸条：“这是今天的早餐。”姑娘又气又笑地揉掉它，开始吃自备早餐。</p>
+<p>第4天，姑娘老老实实带了早餐，一开抽屉，还是只有纸条：“这是今天的早餐。”揉掉。</p>
+<p>第5天，同上。</p>
+<p>……</p>
+<p>第n天，同上。</p>
+<p>第n+1天，姑娘不揉纸条了，开始边吃自备早餐边欣赏起笔迹来。</p>
+<p>……</p>
+<p>第2n天，姑娘乐呵呵地看到纸条后开始巴普络夫式地吃早餐。</p>
+<p>第2n+1天，姑娘站到了爱因斯坦电梯门口。“这是今天的早餐。”几个字的视觉效应已与自备早餐的美妙口感建立了通感。</p>
+<p>……</p>
+<p>第3n天，姑娘进了电梯。</p>
+<p>第3n+1天，一个伟大的公式水彩画般地印入姑娘脑海中：纸条=早餐（惯性力=重力）</p>
+<p>……</p>
+<p>第4n天，姑娘没有发现纸条。上帝拉累了，电梯匀速直线了，g点没了，姑娘悬浮了，早餐难以下咽了。</p>
+<p>第4n+1天，姑娘耷拉着脑袋还是先去开抽屉，此刻再抠门你就下辈子再把妹吧！一份可爱的实体早餐跳了出来！刷着她的眼帘！量身定做！精心打造！没有纸条！姑娘骚荡不安地左顾右盼。这时年轻帅气的爱因斯坦稳步过去递上纸条，上面潇洒飘逸着几颗帅字：“久等了，头一回做成功。”</p>
+<p>此法经济实惠，缺陷是有点耗时间，不过爱因斯坦的粉丝应该不缺时间。 </p>
+<p>[9].尾递归把妹法</p>
+<p>尾递归是针对传统的递归算法而言的，传统的递归算法在很多时候被视为洪水猛兽。它的名声狼籍，好像永远和低效联系在一起。</p>
+<p>尾递归就是从最后开始计算，每递归一次就算出相应的结果，也就是说，函数调用出现在调用者函数的尾部，因为是尾部，所以根本没有必要去保存任何局部变量。直接让被调用的函数返回时越过调用者，返回到调用者的调用者去。</p>
+<p>传统把妹算法是一个O(n)复杂度的算法。由于把妹算法的完成时间无法预估，也就是问题规模n无法预估，而且使用传统的递归把妹算法时，每进行一次递归，都需要在堆栈上保存新的状态，因此，对堆栈深度的需求也是无法预估的。在问题规模较大，也就是妹子比较顽固的情况下，极有可能导致堆栈溢出。鉴于此，我们应该使用尾递归算法来解决这个问题。</p>
+<p>具体来说，我们可以假设当某一天妹子吃完早餐之后，会给出非零的返回值，意即把妹成功。因此，只需要在递归函数的尾部返回妹子在下一天吃完早餐之后的返回值，即可实现尾递归。</p>
+<p>由于尾递归并不需要额外的堆栈空间，因此，可以更高效地获得妹子的最终返回值。</p>
+<p>以下是使用类Lua语法实现的伪代码：</p>
+<pre><code>require(&quot;Sister&quot;)
+ function HandleSister(day)
+ if Sister:EatBreakfast(day) == 1 then
+   return 1
+ else
+ -- tail recursive
+    return HandleSister(day + 1)
+ end
+ end
+</code></pre><p>[10].千呼万唤始出来 —- 牛顿把妹法</p>
+<p>看到现代物理硕果累累，经典物理也不禁跃跃欲试</p>
+<p>众所周知，牛顿三大定律是经典物理中经典：</p>
+<p>牛顿第一定律（惯性定律）：物体在不受外力的作用下，总保持匀速直线运动状态或静止状态，直到有外力迫使它改变这种状态为止</p>
+<p>牛顿第二定律（加速度定律）：物体的加速度跟物体所受的合外力成正比，跟物体的质量成反比，加速度的方向跟合外力的方向相同</p>
+<p>牛顿第三定律（作用力与反作用力定律）：两个物体之间的作用力和反作用力，大小相等，方向相反</p>
+<p>应用到把妹学上就是：</p>
+<p>牛顿把妹法第一定律：在不受外力作用时，妹总是沿原生活轨迹匀速直线运动，或保持静止</p>
+<p>牛顿把妹法第二定律：妹的加速度与妹受到的把力成正比，加速度方向与合力方向相同</p>
+<p>牛顿把妹法第三定律：妹受到的作用力与妹的反作用力，大小相等，方向相反</p>
+<p>具体指导方法如下：</p>
+<p>妹在被哥把之前，沿着自己的生活轨迹匀速直线运动或保持静止状态。在哥对妹施加把力之后，既送早餐之后。妹就在把力的作用下脱离了自己本来的轨迹，匀加速运动。并且，把力越大，既送的早餐越好，送的越勤，妹的加速度也就越大。不过，除了把力，还有来自妹本身和妹身边的同学/同事家人等各个方向的阻力，并随着妹速度的增加而增加。因此，妹实际的运动方向是这几种力的合力。这就要求哥得会受力分析，计算出把力的方向和大小。</p>
+<p>最终，在通往幸福的方向上，妹匀加速前进</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/20/2015-12-20-xuedinge/" rel="next" title="[转]《源代码》：薛定谔定律里的那只猫">
+                <i class="fa fa-chevron-left"></i> [转]《源代码》：薛定谔定律里的那只猫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/30/2015-12-30-shaonianjinshi/" rel="prev" title="少年锦时">
+                少年锦时 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg" alt="cg33">
+            
+              <p class="site-author-name" itemprop="name">cg33</p>
+              <div class="site-description motion-element" itemprop="description">一个喜欢代码的小孩</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+              <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                <ul class="links-of-blogroll-list">
+                  
+                  
+                    <li>
+                    
+                      <a href="/2018/07/09/mins-introduction/" title="Mins，一个mini版的restful api资源服务器" target="_blank">Mins，一个mini版的restful...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/07/golang-admin-dispatcher/" title="Go语言编写的web管理平台生成框架" target="_blank">Go语言编写的web管理平台生成框架</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/02/task-dispatcher-base-channel/" title="基于golang channel的轻量级异步任务分发器" target="_blank">基于golang channel的轻量级...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/05/05/micro-service-go-kit/" title="基于gokit的微服务项目骨架ko" target="_blank">基于gokit的微服务项目骨架ko</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/04/19/develop-a-alfred-workflow/" title="php脚本开发Alfred workflow" target="_blank">php脚本开发Alfred workfl...</a>
+                    
+                    </li>
+                  
+                  <li>
+                      ....
+                  </li>
+                </ul>
+              </div>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenhg5" title="GitHub &rarr; https://github.com/chenhg5" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:chg80333@gmail.com" title="E-Mail &rarr; mailto:chg80333@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+                
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cg33</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

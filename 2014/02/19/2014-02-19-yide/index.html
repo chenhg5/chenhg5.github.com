@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源于传业授道中的感受，也可能源于对死亡的恐惧，对亲情，友情，爱情的念重。但是可悲的是，这样的敬重，却可以在欲望和利益面前，吹灰而散。">
+<meta name="keywords" content="技术,GO,golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="医德">
+<meta property="og:url" content="https://chenhg5.github.io/2014/02/19/2014-02-19-yide/index.html">
+<meta property="og:site_name" content="cg33">
+<meta property="og:description" content="想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源于传业授道中的感受，也可能源于对死亡的恐惧，对亲情，友情，爱情的念重。但是可悲的是，这样的敬重，却可以在欲望和利益面前，吹灰而散。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-12-09T18:39:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="医德">
+<meta name="twitter:description" content="想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源于传业授道中的感受，也可能源于对死亡的恐惧，对亲情，友情，爱情的念重。但是可悲的是，这样的敬重，却可以在欲望和利益面前，吹灰而散。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="cg33" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenhg5.github.io/2014/02/19/2014-02-19-yide/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>医德 | cg33</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cg33</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/chenhg5" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenhg5.github.io/2014/02/19/2014-02-19-yide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cg33">
+      <meta itemprop="description" content="一个喜欢代码的小孩">
+      <meta itemprop="image" content="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cg33">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">医德
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-02-19 17:46:00" itemprop="dateCreated datePublished" datetime="2014-02-19T17:46:00+08:00">2014-02-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-12-10 02:39:43" itemprop="dateModified" datetime="2015-12-10T02:39:43+08:00">2015-12-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。<br>　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源于传业授道中的感受，也可能源于对死亡的恐惧，对亲情，友情，爱情的念重。但是可悲的是，这样的敬重，却可以在欲望和利益面前，吹灰而散。<br>　　复旦投毒案的犯人，查了资料，原本科毕业于中大医学院，更是出生于汕头的地道潮汕人。这样的身份，不得不让我感到诧异。他在面对采访时的冷酷，对于同样来自潮汕，就读于中大的我来说，可以得到解释，但是却不能接受。可以解释的原因是，借钱理群先生对此的观点，“我们的一些大学，正在培养一些‘精致的利己主义者，他们高智商、世俗、善于表演、懂得配合，更善于利用体制达到自己的目的。”林某拿生命来开玩笑，本身就已经丧失自身对生命的敬重了，这种丧失且不论是为什么，投毒室友，读此专业，应该知道此毒致命，投毒后既不破坏现场，也不销毁证据，死者父亲赶赴上海时，还能平静地与其同住宿舍，此人要不是丧心病狂，就是傻叉。研究生能是傻叉吗？在采访中，他承认他自己只是因为生了别人的气而迁怒于室友。这种迁怒甚至不是一时的，他是经过了理性的思考，辗转拿到毒药才投的毒，仿佛一个做实验的过程，而活生生的一条人命就此没了，其实没什么，就跟做实验一般，一只小白鼠死了罢了，可用则用之，不可用则丢掉。敢问哪个医学生在对小白鼠做实验前会双手合十，祷告一番，甚至为此落泪，估计无人。这样的实验做多了，久而久之，自然也就习以为常。小白鼠可爱的背后，其实也不过一些骨骼一些肉。<br>　　这种人就是中大的败类，枉曾为一个中大人。但你可曾知，他在中大时也是悲天悯人，慈悲为怀。发表着这样的感慨，却做着经过理性思考的丧心病狂之事。这种人病了，病因应是对生命敬重的缺失。善于表演，懂得配合。比如有一个人在五一二大地震发生时，面对着各种媒介上大家发表的悲伤的心情，附和一句，迎合一句，你可知他真是对生命有所敬重，你可有看见他流下了眼泪，也许他只不过想得到他人对他的认可罢了。他的一言一句，若非入到骨子里，你不会知道他内心究竟是一个怎样的人。善于表演，懂得配合。势利，还是真性情，你怎么会知道。<br>　　上次问诊于一位老中医，一位老中医把了诊，问了症状，就给我下药。当我有不同意见时，见我像不懂事的小孩纸，挥手便让我走。开的药不说有坏效果，中药总是有用的，只是无益于我的病。可是连病因都不知，也能开药？恕我愚昧，把诊应该不能把出器官里的情况吧。当然从纯理性角度，只是说，看病就像解题，我有难题不解，请教于医生，医生给出答案，却不给出过程。但令人不满的就在于，医生过于自大，不与我沟通，也不将其过程告知。 不可猜测，医生怎样去看待病人，但要将病人作为实验品，实验品自不用沟通，医生的自大其实是缺乏真诚的表现，乃至有些医生甚至于缺乏敬重。<br>　　医德尚且不正，则现在各种病人捅死医生的悲剧的发生就不难解释了。当然可能原因不一定在于医生，但一定在于缺乏沟通，至于是哪一方的缺乏，不得而知。<br>　　近日给我看病的一位医生，乃是好医生。好医生会与病人沟通，把病人当人看，做事有血有肉，真诚。真心为现在学医的各位同学感到辛苦，我觉得要想做一个好医生，真不容易。除了要有高超的医术，还要了解小医生是当地，大医生是各地的风俗习惯以及人的各种性格，这样才能做到真诚沟通。沟通之余，你还得时刻想着为病人开能在最短时间，最少痛苦下治好病人的最便宜的药方，三个未知量的方程，也不易解。除此之外，你要有上进心。更应该去竭力解答那些未解的难题，去发明一些新的治疗方法。在压力面前，好医生自然少了，被捅死的自然多了。因为这关乎的不仅是利益，还关乎生命，单单是利益就能要人命了。<br>　　所以没选择去当一个医生，是对的，也是错的。               </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/29/2014-01-29-daode/" rel="next" title="道可道，德可得">
+                <i class="fa fa-chevron-left"></i> 道可道，德可得
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/02/2015-08-02-xinyang/" rel="prev" title="论信仰">
+                论信仰 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg" alt="cg33">
+            
+              <p class="site-author-name" itemprop="name">cg33</p>
+              <div class="site-description motion-element" itemprop="description">一个喜欢代码的小孩</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+              <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                <ul class="links-of-blogroll-list">
+                  
+                  
+                    <li>
+                    
+                      <a href="/2018/07/09/mins-introduction/" title="Mins，一个mini版的restful api资源服务器" target="_blank">Mins，一个mini版的restful...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/07/golang-admin-dispatcher/" title="Go语言编写的web管理平台生成框架" target="_blank">Go语言编写的web管理平台生成框架</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/02/task-dispatcher-base-channel/" title="基于golang channel的轻量级异步任务分发器" target="_blank">基于golang channel的轻量级...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/05/05/micro-service-go-kit/" title="基于gokit的微服务项目骨架ko" target="_blank">基于gokit的微服务项目骨架ko</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/04/19/develop-a-alfred-workflow/" title="php脚本开发Alfred workflow" target="_blank">php脚本开发Alfred workfl...</a>
+                    
+                    </li>
+                  
+                  <li>
+                      ....
+                  </li>
+                </ul>
+              </div>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenhg5" title="GitHub &rarr; https://github.com/chenhg5" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:chg80333@gmail.com" title="E-Mail &rarr; mailto:chg80333@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+                
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cg33</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

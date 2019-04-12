@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>cg33</title>
+  
+  <subtitle>凡是过往，皆为序章</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://chenhg5.github.io/"/>
+  <updated>2019-04-11T15:45:30.684Z</updated>
+  <id>https://chenhg5.github.io/</id>
+  
+  <author>
+    <name>cg33</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mins，一个mini版的restful api资源服务器</title>
+    <link href="https://chenhg5.github.io/2018/07/09/mins-introduction/"/>
+    <id>https://chenhg5.github.io/2018/07/09/mins-introduction/</id>
+    <published>2018-07-09T15:35:47.000Z</published>
+    <updated>2019-04-11T15:45:30.684Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>又双叒叕造了一个轮子。Mins，mini server。一个小型服务器。主要用来做一些小型项目开发，或者前端调试用的服务器。内置完成了增删改查的api。只要配置好数据表，就可以对数据表的资源进行增删改查，用约定好的api路由。用来补充略显鸡肋而常用的”nodejs启动服务器”或”php -S”操作。</p><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/chenhg5/mins" target="_blank" rel="noopener">https://github.com/chenhg5/mins</a></p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>十分的简单，利用提供的二进制文件，传入参数 -c 即可。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mins -c /the/config/file/path</span><br></pre></td></tr></table></figure><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><table><thead><tr><th style="text-align:center">方法</th><th style="text-align:center">路径</th></tr></thead><tbody><tr><td style="text-align:center">GET</td><td style="text-align:center">/resource/:table/id/:id</td></tr><tr><td style="text-align:center">DELETE</td><td style="text-align:center">/resource/:table/id/:id</td></tr><tr><td style="text-align:center">PUT</td><td style="text-align:center">/resource/:table/id/:id</td></tr><tr><td style="text-align:center">POST</td><td style="text-align:center">/resource/:table</td></tr></tbody></table><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>POST 与 PUT 即为增加和修改，均需要通过表单传参数，对应参数名就是数据库表字段名，返回内容都是json格式。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;又双叒叕造了一个轮子。Mins，mini server。一个小型服务器。主要用来做一些小型项目开发，或者前端调试用的服务器。内置完成了增删改
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Go语言编写的web管理平台生成框架</title>
+    <link href="https://chenhg5.github.io/2018/07/07/golang-admin-dispatcher/"/>
+    <id>https://chenhg5.github.io/2018/07/07/golang-admin-dispatcher/</id>
+    <published>2018-07-07T15:27:16.000Z</published>
+    <updated>2019-04-11T15:35:10.746Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Web管理平台的工具已经有很多了。但是基于Go的比较少，于是补充了个轮子。用Go来写会有什么好处呢？根据个人的开发经验，基本每个需要交付的项目都会有数据管理平台的需求。而管理平台的编码其实大部分都是重复工作，增删改查，还有前端的页面编写。再加上部署环境等会耗费很多开发时间。这个工作几乎每个项目都需要，所以是完全可以节省的开发成本。GoAdmin也是基于这样的需求生产的。GoAdmin作为一个用Go写的Web管理平台生成工具，会充分利用Go的优点。<strong>零部署时间</strong>，<strong>可移植化(windows, linux, mac)</strong>，<strong>简单配置安装</strong>，<strong>性能优秀</strong>等等。</p><p>由于此类的轮子php较多，也是因为国内用php开发的盆友多。此前的考虑是通过Go来调用php的框架实现可移植，但难度很大。因而考虑重新造轮子。本项目的灵感来自<a href="https://github.com/z-song/laravel-admin" target="_blank" rel="noopener">laravel-admin</a>。感谢<a href="https://github.com/z-song/laravel-admin" target="_blank" rel="noopener">laravel-admin</a>的作者。</p><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/chenhg5/go-admin" target="_blank" rel="noopener">https://github.com/chenhg5/go-admin</a></p><h2 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h2><p>后端基于<a href="https://github.com/valyala/fasthttp" target="_blank" rel="noopener">fasthttp</a>，前端页面基于<a href="https://adminlte.io/themes/AdminLTE/index2.html" target="_blank" rel="noopener">adminlte</a>。fasthttp是性能比原生go的net/http还要优秀的网络包。而adminlte则是世界应用广泛的前端管理ui框架。</p><h2 id="项目预览"><a href="#项目预览" class="headerlink" title="项目预览"></a>项目预览</h2><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1ft048byoafj31kw0w847v.jpg" alt></p><h2 id="项目开发进度"><a href="#项目开发进度" class="headerlink" title="项目开发进度"></a>项目开发进度</h2><p>目前可移植化工作尚未完成，但是已经初步可以使用给go开发人员。需要将项目源码clone到本地，然后在本地配置构建，之后就可以运行了，详细请访问项目readme。</p><p>欢迎加入开发。^-^</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;Web管理平台的工具已经有很多了。但是基于Go的比较少，于是补充了个轮子。用Go来写会有什么好处呢？根据个人的开发经验，基本每个需要交付的项
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于golang channel的轻量级异步任务分发器</title>
+    <link href="https://chenhg5.github.io/2018/07/02/task-dispatcher-base-channel/"/>
+    <id>https://chenhg5.github.io/2018/07/02/task-dispatcher-base-channel/</id>
+    <published>2018-07-02T15:17:38.000Z</published>
+    <updated>2019-04-11T15:43:26.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/chenhg5/go-task" target="_blank" rel="noopener">https://github.com/chenhg5/go-task</a></p><p>有时候我们为了更好的利用计算机资源，可以把一些耗时长的任务队列化异步执行。举个对应简单的生活中例子就是大多数餐厅里面点菜都是先找地方做，看了菜单选好菜之后找服务员点菜，此时再等待菜做好送上来。这里餐厅厨房就是计算机的底层资源，菜就是待执行的任务，而服务员就是我们的go channel。</p><p>关于消息队列有很多好用的框架，如nsq，nats，kafka等等。但有时我们只需要轻量级的异步任务工具，而不需要太过于”复杂”的框架相对于我们的需求来说。于是借鉴一些项目框架，做了一个小小的封装。</p><p>go-task的使用很简单，只需要初始化一个任务处理器，然后往处理器里面添加任务，然后处理器就会异步地去执行了。</p><p>举餐厅的例子，代码如下：</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"runtime"</span></span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line"><span class="string">"time"</span></span><br><span class="line"><span class="string">"github.com/chenhg5/go-task"</span></span><br><span class="line"><span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// init</span></span><br><span class="line">task.InitTaskReceiver(runtime.NumCPU())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有十个人同时点菜</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">task.AddTask(task.NewTask(</span><br><span class="line"><span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;</span><br><span class="line"><span class="string">"user"</span> : strconv.Itoa(i),</span><br><span class="line">&#125;,  <span class="comment">// 参数</span></span><br><span class="line">[]task.FacFunc&#123;ordering, cooking, deliverying&#125;, <span class="comment">// 任务列表</span></span><br><span class="line"><span class="number">-1</span>), <span class="comment">// -1代表任务不超时</span></span><br><span class="line">)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">time.Sleep(time.Second * <span class="number">50</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下单任务</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ordering</span><span class="params">(uuid <span class="keyword">string</span>, param <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;)</span> <span class="params">(<span class="keyword">string</span>, error)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"user "</span> + param[<span class="string">"user"</span>].(<span class="keyword">string</span>) + <span class="string">" is ordering"</span>)</span><br><span class="line">time.Sleep(time.Second * <span class="number">1</span>)</span><br><span class="line"><span class="keyword">return</span> uuid, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 做菜任务</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">cooking</span><span class="params">(uuid <span class="keyword">string</span>, param <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;)</span> <span class="params">(<span class="keyword">string</span>, error)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"user "</span> + param[<span class="string">"user"</span>].(<span class="keyword">string</span>) + <span class="string">" is cooking"</span>)</span><br><span class="line">time.Sleep(time.Second * <span class="number">1</span>)</span><br><span class="line"><span class="keyword">return</span> uuid, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 配送任务</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">deliverying</span><span class="params">(uuid <span class="keyword">string</span>, param <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;)</span> <span class="params">(<span class="keyword">string</span>, error)</span></span> &#123;</span><br><span class="line">fmt.Println(<span class="string">"user "</span> + param[<span class="string">"user"</span>].(<span class="keyword">string</span>) + <span class="string">" is deliverying"</span>)</span><br><span class="line">time.Sleep(time.Second * <span class="number">1</span>)</span><br><span class="line"><span class="keyword">return</span> uuid, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>跑一遍，就会看到：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">user 0 is ordering</span><br><span class="line">user 1 is ordering</span><br><span class="line">user 2 is ordering</span><br><span class="line">user 3 is ordering</span><br><span class="line">user 4 is ordering</span><br><span class="line">user 5 is ordering</span><br><span class="line">user 6 is ordering</span><br><span class="line">user 7 is ordering</span><br><span class="line">user 0 is cooking</span><br><span class="line">user 2 is cooking</span><br><span class="line">user 1 is cooking</span><br><span class="line">user 3 is cooking</span><br><span class="line">user 4 is cooking</span><br><span class="line">user 5 is cooking</span><br><span class="line">user 6 is cooking</span><br><span class="line">user 7 is cooking</span><br><span class="line">user 0 is deliverying</span><br><span class="line">user 1 is deliverying</span><br><span class="line">user 2 is deliverying</span><br><span class="line">user 3 is deliverying</span><br><span class="line">user 6 is deliverying</span><br><span class="line">user 7 is deliverying</span><br><span class="line">user 5 is deliverying</span><br><span class="line">user 4 is deliverying</span><br><span class="line">user 8 is ordering</span><br><span class="line">user 9 is ordering</span><br><span class="line">user 8 is cooking</span><br><span class="line">user 9 is cooking</span><br><span class="line">user 9 is deliverying</span><br><span class="line">user 8 is deliverying</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/chenhg5/go-task&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/chenhg5/go-task&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有时候我们为了更好的
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于gokit的微服务项目骨架ko</title>
+    <link href="https://chenhg5.github.io/2018/05/05/micro-service-go-kit/"/>
+    <id>https://chenhg5.github.io/2018/05/05/micro-service-go-kit/</id>
+    <published>2018-05-05T14:21:49.000Z</published>
+    <updated>2019-04-11T15:12:47.470Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间发布了一个小小的web开发项目骨架<a href="https://github.com/chenhg5/morningo" target="_blank" rel="noopener">morningo</a>，性能与效率齐飞，开发速度在短暂时间熟悉go语言后应该是匹配php,ruby等这些脚本语言，而后期项目并发性能，基本并发到上千乃至上万tcp连接没问题。但从业务架构层面看，项目再发展，数据库存在瓶颈，单体项目耦合度高，可维护性差，可延展性差，存在很多问题。因而项目早期可以采用单体架构，但后期仍然推荐的是面向服务的分布式架构。分布式的架构模式虽然带来了增加的代码量，服务间沟通的成本，但整体项目更具有弹性，延展性更好。</p><p>项目地址：<a href="https://github.com/chenhg5/ko" target="_blank" rel="noopener">https://github.com/chenhg5/ko</a></p><h1 id="gokit介绍"><a href="#gokit介绍" class="headerlink" title="gokit介绍"></a>gokit介绍</h1><p>go语言的优点不用赘述，那么基于go的微服务框架有吗？<a href="https://gokit.io/" target="_blank" rel="noopener">gokit</a>就是一个go语言相关的微服务工具包。它自身称为toolkit，并不是framework。也就是gokit是将一系列的服务集合在一起，提供接口，从而让开发者自由组合搭建自己的微服务项目。基本上看完gokit的<a href="https://gokit.io/examples/" target="_blank" rel="noopener">例子</a>就可以动手模仿着写一个类似的小项目。gokit的结构分为：</p><p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g1z3gp9cxrj30hy0k4q4u.jpg" alt="clipboard.png"></p><h2 id="transport"><a href="#transport" class="headerlink" title="transport"></a><strong>transport</strong></h2><p>决定用哪种方式提供服务请求，一般就是 <strong>http,rpc</strong></p><h2 id="endpoint"><a href="#endpoint" class="headerlink" title="endpoint "></a><strong>endpoint</strong> </h2><p>是gokit最重要的一个层，是一个抽象的接收请求返回响应的函数类型。在这个定义的类型里面会去调用<strong>service</strong>层的方法，组装成<strong>response</strong>返回。而gokit中的所有中间件组件都是通过<a href="https://github.com/tmrts/go-patterns/blob/master/structural/decorator.md" target="_blank" rel="noopener">装饰者设计模式</a>注入的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">type Endpoint func(ctx context.Context, request interface&#123;&#125;) (response interface&#123;&#125;, err error)</span><br><span class="line"></span><br><span class="line">func(log Logger, in endpoint.Endpoint) endpoint.Endpoint &#123;</span><br><span class="line">    return func(ctx context.Context, req interface&#123;&#125;) (interface&#123;&#125;, error) &#123;</span><br><span class="line">            logger.Log(&quot;input&quot;, toJSON(req))</span><br><span class="line">            resp, err := in(ctx, req)</span><br><span class="line">            logger.Log(&quot;output&quot;, toJSON(resp), &quot;err&quot;, err)</span><br><span class="line">            return resp, err</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="service"><a href="#service" class="headerlink" title="service "></a><strong>service</strong> </h2><p>所有的具体方法写在这里，可以理解为单体web框架中的控制器部分。</p><h2 id="工具包"><a href="#工具包" class="headerlink" title="工具包 "></a><strong>工具包</strong> </h2><p>这三个层组成一个gokit微服务应用。此外，作为一个工具包，gokit为此提供了很多微服务工具组件。</p><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g1z3h7ja49j30s80x0thj.jpg" alt="clipboard.png"></p><ul><li>认证组件（basic, jwt）</li><li>回路熔断器</li><li>日志组件</li><li>普罗米修斯监控系统</li><li>限流器</li><li>服务发现系统接口（etcd, consul等）</li><li>路由跟踪</li><li>…</li></ul><p>这些组件大大方便了我们开发一个微服务应用。</p><h1 id="关于ko"><a href="#关于ko" class="headerlink" title="关于ko"></a>关于ko</h1><p><a href="https://github.com/chenhg5/ko" target="_blank" rel="noopener">ko</a>是一个基于<a href="https://github.com/go-kit/kit/" target="_blank" rel="noopener">gokit</a>的微服务架构应用开发骨架。一个基本的微服务架构包括：分发层api网关，监控系统，日志系统，服务提供层等。<a href="https://github.com/chenhg5/ko" target="_blank" rel="noopener">ko</a>的目的是提供一个架构参考，从而减短开发者上手微服务架构的时间，最终是想提供一个思路让开发人员能够在极短的时间内架构起一个正式环境完备功能的微服务架构应用，并可以马上着手于开发业务功能。同时，避免与各种基础服务之间耦合度过高，提供灵活的服务定制接口给开发者。<a href="https://github.com/chenhg5/ko" target="_blank" rel="noopener">ko</a>会在<a href="https://github.com/go-kit/kit/" target="_blank" rel="noopener">gokit</a>的基础上，会提供一个解耦且功能完备的Api网关，带有数据连接等功能完备的服务层，以及辅助项目构建的命令行脚手架工具。目前<a href="https://github.com/chenhg5/ko" target="_blank" rel="noopener">ko</a>还在不断完善开发中，会在本文中更新进度。附传统的基础模型架构图。</p><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g1z3gunw69j31aq0tuqeb.jpg" alt="clipboard.png"></p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[1] <a href="https://www.jianshu.com/p/cffe039fa060" target="_blank" rel="noopener">https://www.jianshu.com/p/cffe039fa060</a><br>[2] <a href="https://www.jianshu.com/p/0c34a75569b1" target="_blank" rel="noopener">https://www.jianshu.com/p/0c34a75569b1</a><br>[3] <a href="https://gokit.io/faq/" target="_blank" rel="noopener">https://gokit.io/faq/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前段时间发布了一个小小的web开发项目骨架&lt;a href=&quot;https://github.com/chenhg5/morningo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;morningo&lt;/a&gt;，性能与效率齐飞，开发速度在短暂时间熟悉go语言后应该
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>php脚本开发Alfred workflow</title>
+    <link href="https://chenhg5.github.io/2018/04/19/develop-a-alfred-workflow/"/>
+    <id>https://chenhg5.github.io/2018/04/19/develop-a-alfred-workflow/</id>
+    <published>2018-04-19T10:22:18.000Z</published>
+    <updated>2019-04-11T10:29:17.208Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用mac的码农应该不会没用过大名鼎鼎的<a href="https://www.alfredapp.com/" target="_blank" rel="noopener">Alfred</a>，至少也听说过。反正我自从接触mac下了Alfred，就基本不会用到mac的spotlight。Alfred源何强大，也是因为他的工作流(workflow)。想想你是不是经常为了查找本地公网ip，需要：打开浏览器，输入百度，输入ip，搜索。自从用了Alfred后，几个按键就帮你搞定了。为了翻译一个单词，需要：打开浏览器，搜索打开百度/谷歌翻译，输入单词，然后才得到结果。如今用了Alfred，option+space+yd+space+单词，搞定了。很geek，很奶思。这样棒的产品，请了解一下！不要999，不要99，只要19…欧元。当蓝了，我是不会跟你说是可能可以破解的。那购买了这款这么棒的产品后，当蓝还有更棒的功能，那就是你可以自己写自己的workflow了，不管你是php程序员，python程序员，ruby程序员还是就写个shell啥的，都可以。Alfred提供了简单的接口给码农们自嗨。下面演示一下用php开发两个简单的workflow。</p><p><strong>unicode2utf8</strong><br>unicode转utf8 <a href="https://github.com/chenhg5/Unicode2Utf8" target="_blank" rel="noopener">https://github.com/chenhg5/Unicode2Utf8</a></p><p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g1yvcx672nj318c0ca0zp.jpg" alt="clipboard.png"></p><p><strong>make a string</strong><br>生成随机字符串  <a href="https://github.com/chenhg5/MakeStrAlfred" target="_blank" rel="noopener">https://github.com/chenhg5/MakeStrAlfred</a></p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g1yvcy4gvdj317s0ce45i.jpg" alt="clipboard.png"></p><h2 id="演示一下"><a href="#演示一下" class="headerlink" title="演示一下"></a>演示一下</h2><p><strong>用Alfred打开Alfred的偏好设置</strong>。</p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g1yvcyxtn8j317u0aujxa.jpg" alt="clipboard.png"></p><p><strong>左下点击+打开一个blank workflow</strong></p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g1yvczzftpj317y0m8gyc.jpg" alt="clipboard.png"></p><p><strong>加入一个script filter的input</strong></p><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g1yvd0vr4qj31860ty15d.jpg" alt="clipboard.png"></p><p>然后双击进去填写各种明显的信息，在下方选择<code>php</code>开始写代码。</p><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g1yvd1s4elj31860fmwjv.jpg" alt="clipboard.png"></p><p>这里的<code>&#39;{query}&#39;</code>代表了在alfred输入框关键词后面的输入。然后<code>require_once</code>的脚本位置在下面这里：</p><p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g1yvd32idxj317w0pkh8f.jpg" alt="clipboard.png"></p><p>右键打开workflow文件夹，各种资源文件也放里面。然后撸代码就可以。注意脚本会输出一个<strong>xml</strong>字符串，这个字符串就是alfred检索出来的列表，<strong>xml</strong>有各种属性可以去探索，但最基本的可以设置icon/title/subtitle/copy text等等。可以看代码注释。</p><p>附php的一个workflow开发包：<a href="https://github.com/joetannenbaum/alfred-workflow" target="_blank" rel="noopener">https://github.com/joetannenbaum/alfred-workflow</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;使用mac的码农应该不会没用过大名鼎鼎的&lt;a href=&quot;https://www.alfredapp.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Alfred&lt;/a&gt;，至少也听说过。反正我自从接触mac下了Alfred，就基本不会用到mac的s
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>为什么又要推荐一个新的web框架</title>
+    <link href="https://chenhg5.github.io/2018/04/10/a-new-web-framework/"/>
+    <id>https://chenhg5.github.io/2018/04/10/a-new-web-framework/</id>
+    <published>2018-04-10T09:52:35.000Z</published>
+    <updated>2019-04-11T15:43:53.056Z</updated>
+    
+    <content type="html"><![CDATA[<p>很难找到一款<strong>开发效率高</strong>，<strong>易上手能够广泛推广</strong>，<strong>性能好</strong>（节省成本抗住大并发C10k）， <strong>部署简单</strong>（一键部署，无需配置任何环境）的Http项目开发框架。如果有，那么一定是用Go语言开发的吧！看到很多php的仁兄还没接触Go语言。想起以往用php框架像<strong>laravel</strong>开发，<strong>php-fpm</strong>部署运行，并发起来疯狂加机器的日子，眼泪就流下来。尽管后来有了<strong>swoole</strong>这种优秀的解决方案。Go的天生底层网络处理优势还是独树一帜（请忘了它的语法）。于是，我向即将或已经遭受并发之苦，成本之痛，部署之心累的底层码农们推荐一门神奇的语言Go，以及一个优秀的Web开发框架Gin。Beego?听过很多吐槽，不敢轻易用。由于Gin很”简单”，根据一些个人的开发习惯，整理了一个基于Gin新手入门项目开发骨架，欢迎下载一波感受一下。以下正文：</p><p>地址：<a href="https://github.com/chenhg5/morningo" target="_blank" rel="noopener">https://github.com/chenhg5/morningo</a></p><h1 id="MorningGo-Gin-WebApp-Project-Skeleton"><a href="#MorningGo-Gin-WebApp-Project-Skeleton" class="headerlink" title="MorningGo : Gin WebApp Project Skeleton"></a>MorningGo : Gin WebApp Project Skeleton</h1><p>基于<a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">Gin</a>的web项目开发框架。仅供参考。</p><p>更高的开发效率，<br>更好的性能，<br>更简单整洁的项目组织结构，<br>更快的部署。</p><p>适合于小型项目，大中型项目(pv高、需求复杂度高)移步 <a href="https://github.com/go-kit/kit" target="_blank" rel="noopener">kit</a>、<a href="https://github.com/micro/go-micro" target="_blank" rel="noopener">go-micro</a>、<a href="https://github.com/koding/kite" target="_blank" rel="noopener">kite</a></p><h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul><li><a href="https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md" target="_blank" rel="noopener">GO &gt;= 1.8</a></li></ul><h2 id="项目安装运行"><a href="#项目安装运行" class="headerlink" title="项目安装运行"></a>项目安装运行</h2><p>使用安装器安装</p><h3 id="安装项目"><a href="#安装项目" class="headerlink" title="安装项目"></a>安装项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd $GOPATH/src</span><br><span class="line"></span><br><span class="line">wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer       # mac</span><br><span class="line">wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer-linus # linus</span><br><span class="line">wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer.exe   # windows</span><br><span class="line"></span><br><span class="line">chmod +x morningo-installer</span><br><span class="line">./morningo-installer --project-name web</span><br></pre></td></tr></table></figure><h3 id="加载依赖"><a href="#加载依赖" class="headerlink" title="加载依赖"></a>加载依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd web</span><br><span class="line">make deps</span><br></pre></td></tr></table></figure><h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make test</span><br></pre></td></tr></table></figure><h3 id="平滑重启"><a href="#平滑重启" class="headerlink" title="平滑重启"></a>平滑重启</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make restart</span><br></pre></td></tr></table></figure><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure><p>浏览器访问 <a href="http://localhost:4000/api/index" target="_blank" rel="noopener">http://localhost:4000/api/index</a></p><h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>生成可执行文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make build # linus用户</span><br><span class="line">make cross # mac/windows用户</span><br></pre></td></tr></table></figure></p><p>将<figure class="highlight plain"><figcaption><span>关于代理的使用，```routers.go```中有示例。运行的同时会在文件夹下生成```pid```文件，每次更新完文件后执行如下命令即可平滑热更。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">kill -INT $(cat pid) &amp;&amp; ./morningo # 即停止旧的进程，重启新的执行文件</span><br></pre></td></tr></table></figure></p><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.</span><br><span class="line">├── Makefile</span><br><span class="line">├── README.md</span><br><span class="line">├── command                     </span><br><span class="line">│   └── sword.go</span><br><span class="line">├── config                      全局配置</span><br><span class="line">│   └── env.go</span><br><span class="line">├── connections                 存储连接</span><br><span class="line">│   ├── database</span><br><span class="line">│   │   ├── mongodb</span><br><span class="line">│   │   └── mysql</span><br><span class="line">│   └── redis</span><br><span class="line">│       └── redis.go</span><br><span class="line">├── controllers                 控制器</span><br><span class="line">│   └── MainController.go</span><br><span class="line">├── filters                     中间件</span><br><span class="line">│   └── auth                    认证中间件</span><br><span class="line">│       ├── drivers             认证引擎</span><br><span class="line">│       └── auth.go             </span><br><span class="line">├── frontend                    前端资源</span><br><span class="line">│   ├── assets</span><br><span class="line">│   │   ├── css</span><br><span class="line">│   │   ├── images</span><br><span class="line">│   │   └── js</span><br><span class="line">│   ├── dist</span><br><span class="line">│   └── templates</span><br><span class="line">│       └── index.tpl</span><br><span class="line">├── handle.go                   全局错误处理</span><br><span class="line">├── main.go                     </span><br><span class="line">├── models                      模型</span><br><span class="line">│   └── User.go</span><br><span class="line">├── module                      项目模块</span><br><span class="line">│   └── schedule</span><br><span class="line">│       └── schedule.go         定时任务模块</span><br><span class="line">├── routers.go                  路由</span><br><span class="line">├── routers_test.go             api测试</span><br><span class="line">├── storage                     </span><br><span class="line">│   ├── cache                   缓存文件</span><br><span class="line">│   └── logs                    项目日志</span><br><span class="line">│       ├── access.log          </span><br><span class="line">│       └── error.log</span><br><span class="line">└── vendor                      govendor 第三方包</span><br></pre></td></tr></table></figure><h2 id="箱子里有什么-what-s-in-the-box"><a href="#箱子里有什么-what-s-in-the-box" class="headerlink" title="箱子里有什么 what`s in the box"></a>箱子里有什么 what`s in the box</h2><h3 id="HTTP-层-基于Gin"><a href="#HTTP-层-基于Gin" class="headerlink" title="HTTP 层(基于Gin)"></a>HTTP 层(基于<a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">Gin</a>)</h3><ul><li>路由</li><li>中间件</li><li>控制器</li><li>请求</li><li>响应</li><li>视图</li><li>Session</li></ul><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul><li>tpl模板</li></ul><h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><ul><li>用户认证</li><li>用户授权</li><li>加密解密</li><li>哈希</li></ul><h3 id="综合话题"><a href="#综合话题" class="headerlink" title="综合话题"></a>综合话题</h3><ul><li>dancer 命令行</li><li>缓存系统</li><li>错误与日志</li><li>任务调度</li></ul><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul><li>mysql</li><li>mongodb</li><li>redis</li></ul><h3 id="ORM-基于gorm"><a href="#ORM-基于gorm" class="headerlink" title="ORM(基于gorm)"></a>ORM(基于<a href="https://github.com/jinzhu/gorm" target="_blank" rel="noopener">gorm</a>)</h3><h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><ul><li>api 测试</li></ul><h2 id="项目依赖"><a href="#项目依赖" class="headerlink" title="项目依赖"></a>项目依赖</h2><ul><li>web框架：github.com/gin-gonic/gin</li><li>ORM包：github.com/jinzhu/gorm</li><li>Redis：github.com/go-redis/redis</li><li>Mysql：github.com/go-sql-driver/mysql</li><li>Wechat：github.com/silenceper/wechat</li><li>任务调度：github.com/robfig/cron</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;很难找到一款&lt;strong&gt;开发效率高&lt;/strong&gt;，&lt;strong&gt;易上手能够广泛推广&lt;/strong&gt;，&lt;strong&gt;性能好&lt;/strong&gt;（节省成本抗住大并发C10k）， &lt;strong&gt;部署简单&lt;/strong&gt;（一键部署，无需配置任何环境）的Http项目开
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>少年锦时</title>
+    <link href="https://chenhg5.github.io/2015/12/30/2015-12-30-shaonianjinshi/"/>
+    <id>https://chenhg5.github.io/2015/12/30/2015-12-30-shaonianjinshi/</id>
+    <published>2015-12-30T01:17:00.000Z</published>
+    <updated>2015-12-30T00:10:52.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[转]科学把妹法</title>
+    <link href="https://chenhg5.github.io/2015/12/23/2015-12-23-bameifa/"/>
+    <id>https://chenhg5.github.io/2015/12/23/2015-12-23-bameifa/</id>
+    <published>2015-12-23T13:52:00.000Z</published>
+    <updated>2015-12-23T14:24:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”：</p><p>每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。</p><p>如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，突然停止送餐，她心中一定会产生深深的疑惑及失落，同时会满怀兴趣与疑问找到你询问，这时再一鼓作气将其拿下。　　　　</p><p>此法借鉴了不朽的生物学家巴甫洛夫之“条件反射试验”，故名“巴甫洛夫把妹法”。</p><p>[2].生物界良策在前，物理界岂甘人后！今天，就将向大家隆重推出量子论的胜利—-“薛定谔把妹法”！　　　　　　　　　　　　　　　　　　　　　　　　</p><p>众所周知，为了浅显的说明量子论的概率特性，伟大的薛定谔同志作出过一个假设：　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</p><p>一只猫与一种衰变概率为50%的放射物质同放在一个箱子里(此放射性物质一旦衰变，与盖格计数器相连接的小锤就击碎一个装氰化物的瓶子，然后猫就…挂了)，如果打开箱子，我们可以知道物质是否衰变，猫是否死亡。而在没打开箱子的时候，这猫就处在一个既可能生，又可能已死的“半生半死”的可怜状态。　　　</p><p>这就是：事件在被观察以前，一直处在一个所谓“概率云”的状态下，一旦受到观察，则坍缩为实体。</p><p>以上是引言，正文在此：</p><p>薛定谔把妹法乃是建立在巴甫洛夫把妹法之上的威力加强版：</p><p>每天早上，你拿出一个硬币抛掷，让伟大的随机性来决定今天是否给妹子送早餐。<br>这样，当妹子每天打开抽屉之前，都不知道是否有早餐，而早餐的有无乃是一个独立随机事件，完全无法推测。每天的早餐对于妹子都是一个未知的神秘存在，妹子将逐渐为这一神秘的现象所吸引，最终将不可避免的对这个送餐人产生极大的兴趣，你在她的心中蒙上了神秘的面纱。</p><p>这个谜一样的男子，这一刻薛定谔附体，带着量子论般深沉的哀愁，让她从此不能自拔!</p><p>总结：此帖将“早餐把妹”这样一个物理现象提升到了科学研究的领域，为了深入研究，故开创“早餐把妹学”在此暂设立两条基本假设为公理：</p><p>1 妹早上必然打开抽屉。<br>2 妹能感受到可能放在抽屉里的早餐。(即能感觉到抽屉里有早餐，且对其做出反映)</p><p>请给我这个谜一样的男子，这一刻薛定谔附体，带着量子论般深沉的哀愁，让我从此不能自拔! </p><p>[3].还可以再加强！</p><p>把妹这事儿，少了海森堡怎么行？！</p><p>测不准把妹法加强补丁如下：</p><p>如果抛硬币的结果为当天不送早餐，那么就拍一张本来可能送出的早餐图，显示清楚各种食物、饮料、水果的搭配，包括原料表和营养成分表，放在妹子的抽屉里。</p><p>如果抛硬币的结果是当天送早餐，那么就将准备好的早餐放到搅拌机里，打碎搅拌均匀成糊状，并包好放在妹子的抽屉里。</p><p>这样一来，妹子要么吃得到早餐，但不知道吃的是什么东西；要么很清楚今天早餐食谱，但是吃不到，进而对海森堡的吃不准原理有了更深的体会。</p><p>一颗扑通扑通乱跳的芳心就这样在物理学的强大引力场下被俘获了。 </p><p>[4].还可以再加强！</p><p><strong>华生把妹法和斯金纳把妹法</strong></p><p>华生的把妹方法继承自巴甫洛夫的衣钵，仍然是传统的刺激条件反射， 但是按照华生的理论，纯粹的行为主义者可以喊出这样一句话：</p><p>给我一打女同事，我还你一堆软妹子！</p><p>众所周知经典行为主义将感觉、知觉、激情、情绪等都用刺激和反馈行为来描述。巴普洛夫的条件反射是基于单纯的神经系统，而华生更注意肌肉与腺体。但不论如何，行为主义者的观念中，是通过转换的手法来“清除”意识的，也就是说，他把一些意识内容转换成身体的内部刺激或肌肉的动觉反馈。</p><p>行为主义不在于寻找那种普遍的内省的“妹子”，而在于将一张张白纸塑造成软妹子。</p><p>取一定的样本量，在一批女同事/女同学抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。（S）</p><p>另取同样样本量的女同事/女同学作对照组，两组都安装摄像头和外部体温计观察。</p><p>在一定时间后，早餐的行为形成之后再从原来的组中挑选一半施以午餐反馈行为，对照组将自动离开，而目标组将继续情绪条件反射的习得。（R）</p><p>接下来的晚餐习得和夜宵习得就水到渠成了。</p><p>不过，缺陷是比较费钱！</p><p>不过既然是走养成路线，大撒网的气度就是经典行为主义者的浪漫。</p><p><strong>斯金纳的操作行为主义把妹法</strong></p><p>B.F.斯金纳，新行为主义的旗手</p><p>他对条件反射的进一步理解使得把妹比华生的手段要来得经济而高效。</p><p>首先我们来了解一下斯金纳箱：</p><p>斯金纳关于操作性条件反射作用的实验，是在他设计的一种动物实验仪器即著名的斯金纳箱中进行的。箱内放进一只白鼠或鸽子，并设一杠杆或键，箱子的构造尽可能排除一切外部刺激。动物在箱内可自由活动，当它压杠杆或啄键时，就会有一团食物掉进箱子下方的盘中，动物就能吃到食物。箱外有一装置记录动物的动作。斯金纳的实验与巴甫洛夫的条件反射实验的不同在于：（1）在斯金纳箱中的被试动物可自由活动，而不是被绑在架子上；（2）被试动物的反应不是由已知的某种刺激物引起的，操作性行为（压杠杆或啄键）是获得强化刺激（食物）的手段；（3）反应不是唾液腺活动，而是骨骼肌活动；（4）实验的目的不是揭示大脑皮层活动的规律，而是为了表明刺激与反应的关系，从而有效地控制有机体的行为。</p><p>也就是说，强化行为是把妹的手段和目的。斯金纳认为强化刺激不是与反应同时发生的，也不需要先于反应，而是随着反应发生。有机体必须先做出我们所期望的反应，然后得到“报酬”，就能形成一次有效的正强化。</p><p>那么如何操作呢？</p><p>我们首先看一下TBBT当中Sheldon对Penny的一次实例：当Sheldon发现Penny做出适合自己期望的行为时，就给她一颗巧克力，这就是一次”GOOD Penny”的操作条件，也就是说，我们操作的标志在于“我”对对方有何等的期望，然后才有的放矢地进行操作条件反射和强化的构建。</p><p>当然，负强化的操作也可以参见Sheldon对Lenord的”BAD Lenord”的操作示范（喷水）</p><p>那么推广到把妹法就是这样的：</p><p>操作1：当你心仪的女同事/女同学在无意之间为你做了一点小事，向你认真地微笑，或者称赞你的时候，就在她抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。（她并不知道会是谁放的）</p><p>原则是：她没有对你示好，就不放，她有一点点好，就通过放早餐（正强化），她如果对你表示厌恶，可以用不动声色的负强化（具体的可以参考她讨厌什么）。</p><p>如此以往操作下去（基本上也比较省早餐钱），总之是要比巴甫洛夫来得高效一点。</p><p>操作2：当你心仪的女同事/女同学在无意之间来你房间一次的时候，给她以奶茶的正强化刺激。</p><p>操作3：当你心仪的女同事/女同学在无意之间触碰到你的时候，给她以巧克力的正强化刺激。</p><p>操作4：当你心仪的女同事/女同学在无意之间……给她……的正强化刺激</p><p>…..</p><p>也就是说，强化刺激是可以无处不在的，但是不论如何，负强化是要慎用的，斯金纳等人也指出负强化的效果很难跟正强化相提并论…… </p><p>[5].严肃再加强：</p><p>推荐采用可变-比率程序表 即VR程序表，此程序表产生的反应速率最高，抗消退能力最强。</p><p>即只固定正强化出现的平均次数，但具体出现在那一次是可变的。</p><p>具体而言，当心仪的mm有意无意的做出有利于二人关系的行为时，统计其次数，并在平均正强化量一定的情况下随机的给予正向刺激。</p><p>人们会用一种赌博的心态来对待VR程序表，三番五次的尝试。长此以往，成功在望矣。</p><p>[6].加强版~~</p><p>米尔格拉姆把妹法~</p><p>先说明一下米尔格拉姆实验：随机选择实验参与者做“教师”，关在一个小屋子里，实验设计者假冒“学生”，关在隔壁一个小屋子里，“教师”看不到“学生”但是能听见彼此声音。然后给教师一张问题卡和答案卡，教师隔着墙壁问学生问题，学生答对了就继续问答，答错了就由教师操纵电击学生。每次答错，电击伏特数会加大。而教师听到的是实验者事先准备好的电击声音和尖叫声的录音。</p><p>电压 “学生”的反应</p><table><thead><tr><th>伏特</th><th style="text-align:center">反应</th></tr></thead><tbody><tr><td>75V</td><td style="text-align:center">嘟囔</td></tr><tr><td>120V</td><td style="text-align:center">痛叫</td></tr><tr><td>150V</td><td style="text-align:center">说，他想退出试验</td></tr><tr><td>200V</td><td style="text-align:center">大叫：“血管里的血都冻住了。”</td></tr><tr><td>300V</td><td style="text-align:center">拒绝回答问题</td></tr><tr><td>超过330 V</td><td style="text-align:center">静默</td></tr></tbody></table><p>实验开始于1961年7月，也就是纳粹党徒阿道夫·艾希曼被抓回耶路撒冷审判，被判死刑后的一年。米尔格拉姆设计了这个实验，便是为了测试“艾希曼以及其他千百万名参与了犹太人大屠杀的纳粹追随者，有没有可能只是单纯的服从了上级的命令呢？我们能称呼他们为大屠杀的凶手吗？”整个实验可能只是设计好，为了测试寻常美国民众会不会遵从命令违背道德良心—如同德国人在纳粹时期一样，而这便是实验的初衷之一。</p><p>以上是实验原型介绍，现在正文开始：</p><p>哥为实验设计者，选择自己心仪的妹子来充当上面这个实验里“教师”的角色。妹子被告知自己应准备好自己最喜欢的早餐食谱以及相关问题，然后隔着墙问哥问题。也是假冒电击，只不过墙另一边除了哥在放被电击的声音之外，还有一个内容丰富应有尽有的冰箱，哥根据妹子的问题给妹子准备早餐。等到电击超过330V哥就静默了，妹子就惭愧地退出实验了，然后一出门就看到哥淫笑着端着妹子心仪的早餐等在实验室外面了。</p><p>于是乎妹子感觉被电击的不是哥，而是自己了~~~~</p><p>[7].帕金森把妹法：明天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐28份，没错也就是四周且包含休息日的量，并且保持缄默不语，无论她如何询问，都不要说话。</p><p>如此只需一天，你那堆满她书桌的早餐一定给她带来了不朽的震惊与惊慌，此时趁她惊魂未定一举拿下。</p><p>此法参考了著名的帕金森法则，帕金森法则认为，任务的重要性和复杂度与所分配的完成任务的时间密切相关。这就是不断迫近的最终时限的魔力。如果给你24小时去完成一项任务，时间的压力促使你集中精力去执行，别无选择只能做最重要的部分。同样的任务，如果给你1周去完成，它就换来了小题大作的6天。如果给你2个月的时间，但愿不要这样，它就变成了一场精神磨难。因为精力更高度集中，短时限内做出的最终产品通常不比长时限内做出来的差，甚至质量更高。 </p><p>[8].爱因斯坦把妹法</p><p>“众所周知”，爱爷在引出广义相对论时提出一个简单的思维实验：在远离星体一望无垠的宇宙空间里，上帝说：“要有电梯。”于是出现了一只电梯。上帝继续说：“要有绳。”于是电梯顶上系了根缆绳。上帝还是有点寂寞，于是边以加速度g拉缆绳边说：“要有人。”于是一个男人呱呱落在了电梯里，一副理工相，谁叫他是男人呢，很自觉地开始研究电梯。上帝造电梯时忘了造窗户，因此理工男对电梯外一无所知，他只晓得自己怎么使劲跳还是会落到电梯底板上来，多次尝试后很命贱地开始研究跳的高度和下落时间的关系（上帝适时地说了“要有实验工具…”）久而久之，他居然算出了g。但丫是个无神论者，懒得管上帝寂不寂寞，他只认电梯底板，认为那个才是宇宙（电梯）中最牛逼的东西，无时无刻不在产生一种被他后来称做“重力”的远距离神秘效应。</p><p>不罗嗦了，回到早餐。早餐在这里必须是类似于重力的一种效应，美妙的口感与脚踏实地都能唤起幸福感，区别仅仅在于姑娘们对前者效应的敏感区集中在舌部。</p><p>我们要学的，正如爱因斯坦老爷可以用一架重力场外加速“上升”的电梯制造出重力的假象，那么，考虑到腰间不那么饱满的钱袋，为何不去制造出早餐的假象呢？</p><p>第1天，夜深人静了，爱因斯坦会在女同学的抽屉里留张纸条：“明早这里将会有份早餐。”</p><p>第2天，姑娘的反应：有人暗恋我？不会是恶作剧吧？开始期待第三天。</p><p>第3天，姑娘还是矜持地自带了早餐，外表平静内心潮涌地打开抽屉。唉伊西——没有早餐！还是一张纸条：“这是今天的早餐。”姑娘又气又笑地揉掉它，开始吃自备早餐。</p><p>第4天，姑娘老老实实带了早餐，一开抽屉，还是只有纸条：“这是今天的早餐。”揉掉。</p><p>第5天，同上。</p><p>……</p><p>第n天，同上。</p><p>第n+1天，姑娘不揉纸条了，开始边吃自备早餐边欣赏起笔迹来。</p><p>……</p><p>第2n天，姑娘乐呵呵地看到纸条后开始巴普络夫式地吃早餐。</p><p>第2n+1天，姑娘站到了爱因斯坦电梯门口。“这是今天的早餐。”几个字的视觉效应已与自备早餐的美妙口感建立了通感。</p><p>……</p><p>第3n天，姑娘进了电梯。</p><p>第3n+1天，一个伟大的公式水彩画般地印入姑娘脑海中：纸条=早餐（惯性力=重力）</p><p>……</p><p>第4n天，姑娘没有发现纸条。上帝拉累了，电梯匀速直线了，g点没了，姑娘悬浮了，早餐难以下咽了。</p><p>第4n+1天，姑娘耷拉着脑袋还是先去开抽屉，此刻再抠门你就下辈子再把妹吧！一份可爱的实体早餐跳了出来！刷着她的眼帘！量身定做！精心打造！没有纸条！姑娘骚荡不安地左顾右盼。这时年轻帅气的爱因斯坦稳步过去递上纸条，上面潇洒飘逸着几颗帅字：“久等了，头一回做成功。”</p><p>此法经济实惠，缺陷是有点耗时间，不过爱因斯坦的粉丝应该不缺时间。 </p><p>[9].尾递归把妹法</p><p>尾递归是针对传统的递归算法而言的，传统的递归算法在很多时候被视为洪水猛兽。它的名声狼籍，好像永远和低效联系在一起。</p><p>尾递归就是从最后开始计算，每递归一次就算出相应的结果，也就是说，函数调用出现在调用者函数的尾部，因为是尾部，所以根本没有必要去保存任何局部变量。直接让被调用的函数返回时越过调用者，返回到调用者的调用者去。</p><p>传统把妹算法是一个O(n)复杂度的算法。由于把妹算法的完成时间无法预估，也就是问题规模n无法预估，而且使用传统的递归把妹算法时，每进行一次递归，都需要在堆栈上保存新的状态，因此，对堆栈深度的需求也是无法预估的。在问题规模较大，也就是妹子比较顽固的情况下，极有可能导致堆栈溢出。鉴于此，我们应该使用尾递归算法来解决这个问题。</p><p>具体来说，我们可以假设当某一天妹子吃完早餐之后，会给出非零的返回值，意即把妹成功。因此，只需要在递归函数的尾部返回妹子在下一天吃完早餐之后的返回值，即可实现尾递归。</p><p>由于尾递归并不需要额外的堆栈空间，因此，可以更高效地获得妹子的最终返回值。</p><p>以下是使用类Lua语法实现的伪代码：</p><pre><code>require(&quot;Sister&quot;) function HandleSister(day) if Sister:EatBreakfast(day) == 1 then   return 1 else -- tail recursive    return HandleSister(day + 1) end end</code></pre><p>[10].千呼万唤始出来 —- 牛顿把妹法</p><p>看到现代物理硕果累累，经典物理也不禁跃跃欲试</p><p>众所周知，牛顿三大定律是经典物理中经典：</p><p>牛顿第一定律（惯性定律）：物体在不受外力的作用下，总保持匀速直线运动状态或静止状态，直到有外力迫使它改变这种状态为止</p><p>牛顿第二定律（加速度定律）：物体的加速度跟物体所受的合外力成正比，跟物体的质量成反比，加速度的方向跟合外力的方向相同</p><p>牛顿第三定律（作用力与反作用力定律）：两个物体之间的作用力和反作用力，大小相等，方向相反</p><p>应用到把妹学上就是：</p><p>牛顿把妹法第一定律：在不受外力作用时，妹总是沿原生活轨迹匀速直线运动，或保持静止</p><p>牛顿把妹法第二定律：妹的加速度与妹受到的把力成正比，加速度方向与合力方向相同</p><p>牛顿把妹法第三定律：妹受到的作用力与妹的反作用力，大小相等，方向相反</p><p>具体指导方法如下：</p><p>妹在被哥把之前，沿着自己的生活轨迹匀速直线运动或保持静止状态。在哥对妹施加把力之后，既送早餐之后。妹就在把力的作用下脱离了自己本来的轨迹，匀加速运动。并且，把力越大，既送的早餐越好，送的越勤，妹的加速度也就越大。不过，除了把力，还有来自妹本身和妹身边的同学/同事家人等各个方向的阻力，并随着妹速度的增加而增加。因此，妹实际的运动方向是这几种力的合力。这就要求哥得会受力分析，计算出把力的方向和大小。</p><p>最终，在通往幸福的方向上，妹匀加速前进</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[1].曾经有一位生物学人士，公布了工科把妹第一弹，暨“巴甫洛夫把妹法”：&lt;/p&gt;
+&lt;p&gt;每天给你那位心仪的女同事/女同学的抽屉里都放上精心准备的早餐，并且保持缄默不语，无论她如何询问，都不要说话。&lt;/p&gt;
+&lt;p&gt;如此坚持一至两个月，当妹子已经对你每天的准时早餐习以为常时，
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[转]《源代码》：薛定谔定律里的那只猫</title>
+    <link href="https://chenhg5.github.io/2015/12/20/2015-12-20-xuedinge/"/>
+    <id>https://chenhg5.github.io/2015/12/20/2015-12-20-xuedinge/</id>
+    <published>2015-12-20T13:37:00.000Z</published>
+    <updated>2015-12-20T13:54:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　佛祖有云：一步一生花，一花一世界</p><p>　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导演借以建立其故事架构的概念，若深入其中，则另有一番天地。</p><p>决定论（机械论）：<br>　　影片故事的核心概念是平行宇宙，但要说到这个概念，首先要回答的一个问题是：什么是随机？举一个简单的例子，掷骰子普遍被认为是一种随机现象。因为它的结果无法预知，所以赌博的人都靠他来搏运气。但深入的考查后会发现其可能并不是一个随机事件。骰子落地得到的结果跟其起始条件和环境因素严格相关，若是能够准确控制投出的起始位子，角度，方向，空气流动，温度等所有因素，那么每次投出的结果便会一模一样。也就是说掷骰子这个看似随机的过程实际上很可能是一个确定的过程。<br>　　骰子如此，那么当然硬币也一样，计算机生成的随机数则是通过某种算法得到的伪随机数（通常与计时器相联系），如果以此深究下去，你会惊讶的发现所有你能想到的随机现象也许都是伪随机。每一个结果都是造成它的原因的结果，而它的原因，又是其自身原因的结果。花是注定要开的，因为那阵风带来了花蜜，风是注定要来的，因为远方的蝴蝶拍了拍翅膀（蝴蝶效应），蝴蝶是注定要拍翅膀的，因为另一只女蝴蝶正光着身子偏偏起舞。<br> 　　如此看来似乎一切都已注定，过去的原因决定了现在的结果，那么作为自认高等的人能够摆脱束缚，拥有自由吗？在决定论者看来，这是在自欺欺人。<br>自由意志：<br> 　　哲学上来说，人所能拥有的全部自由是选择的自由，也就是所谓的自由意志。当墨菲斯向尼奥摊开双手时，尼奥便开始行使这样的自由，但无论他吃下哪颗药丸，他的选择早已注定。人们会思前想后，考虑所有因素，作出决定，并执着的认为这是自己的决定。但仔细考虑一下，如果让人在一辆劳斯莱斯和一辆奥迪间选择，100个人中99个会选前者，而剩下的那个想要用他的选择来证明自身的自由，但这样做的他不仅首先受到了证明自身自由这一想法决定（而这一想法又是由于想要反向驳决定论这一冲动而来的，这一冲动又自有其原因）进行了反向选择从而正好证明了决定论，还损失了一辆劳斯莱斯。就如同《奠基》（又名《盗梦空间》）里所说的：当你试着不要去想大象的时候，你首先想到的便是大象。<br> 　　有人也许会想，如果面对两辆几乎一模一样的劳斯莱斯，唯一的不同是底盘上的一个字母，而选择者无法看到这个字母，那么选择者作出的选择不就不受其他因素支配的影响了事件的发展了吗？但若仔细考虑，选择者可能会因为偏爱方向右而顺手选择右边的一辆，而他的这种偏爱可能是小时候的某种创伤造成的信念固着。如此一来我们仍然可以说人并不存在自由意志，一切都已决定，只是我们无法了解。<br> 　　面对一个如此悲观的结论，大多数人难以平静。我们真的对自己无能为力吗？我饿了所以我吃了个面包，我冷了，所以我穿了件衣服，我长大性冲动了，所以我找了个老婆，我看了某本旅行日志或者某篇杂志上爱琴海的美丽风光，所以生出了环游世界的梦想。我们就这样被生活推着，随波逐流。我们是剧中的角色，编剧却另有其人，他只是轻轻推了推第一张骨牌，便创造了这大千世界。他是谁？有人说是上帝，有人说是安拉，但这又是另一个问题了。 </p><p>量子理论：<br> 　　在18,19世纪，基于因果循环的拉普拉斯信条所建立的决定论统治着整个思想界。包括从牛顿到爱因斯坦的众多大家都是其信徒。然而，一场科学上的革命却为非决定论哲学带来了曙光。量子力学的建立在微观层面上质疑了宏观因果律，其提出处于所谓“叠加态”的微观粒子之状态是不确定的，从而将随机这一概念再次拉回我们眼前。<br> 　　举一个例子，通常我们认为原子核之外有电子围绕，然而根据量子力学，这些电子并不是像地球绕着太阳转一样围着原子核绕圈，它可能出现在核周围任意位置中的一个，或者说这一个电子同时出现在他可能出现的位置。只有通过观察，我们才能决定其状态，然而令人蛋疼的是观察又改变了其状态。那么在观察之前电子到底处于什么状态呢？这个问题的蛋疼程度可以通过一个比喻来说明：你来我家做客，我在不在家呢？当你打开门的时候你才能确定我在不在，但在开门之前，我处于什么状态呢？这时我有多个分身，可能在家，可能在学校，可能在路上。我同时处于所有可能处于的位置的叠加态，直到你开门看了一眼，于是我的位置确定了。 </p><p>薛定谔的猫：<br> 　　这样的事情别说你想不通，无数物理学家和哲学家都抓破了头，于是薛定谔想出了一个思想实验：将一只猫关在箱子里，箱内还置有一小块铀、一个盛有毒气的玻璃瓶，以及一套受检测器控制的、由锤子构成的执行机构。铀是不稳定的元素，衰变时放出射线触发检测器，驱动锤子击碎玻璃瓶，释放出毒气将猫毒死。铀未衰变前，毒气未放出，猫是活的。铀原子在何时衰变是不确定的，所以它处于叠加态。薛定谔挖苦说：在箱子未打开进行观测前，按照量子力学的解释，箱中之猫处于 “死－活叠加态”——既死了又活着，要等有人打开箱子看一眼才能决定猫的生死。用量子力学的术语来说，在打开箱子那一刻，因为你看了一眼，波函数塌陷了。这简直匪夷所思，微观的混沌变为宏观的荒谬——猫要么死了，要么活着，两者必居其一，不可能同时既死又活。难怪霍金听到薛定谔猫佯谬时说：“我去拿枪把猫打死！” </p><p>平行宇宙：<br> 　　对于这只令人蛋疼的猫和波函数的塌陷，一个合理的解释是宇宙在此刻分裂了。在这一刻，所有的可能性同时发生于分裂出的平行宇宙之中，猫在一些宇宙中死了，而在另一些宇宙中活着。这一解释是对决定论的重大打击，其假设了微观的不确定性不仅仅影响微观，这种不确定的叠加态让我们在事件发生的那一刻进入了众多可能宇宙中的一个，难怪佛曰：一花一世界。<br> 　　在《源代码》里，主角柯尔特·斯蒂文斯上尉便是通过Dr. Rutledge发明的某种装置用Fentress的残留脑波量子力场（电影中的假想）一次次的回到“肖恩”睡醒睁开眼那一刻的叠加态上并进入众多平行可能宇宙中的一个。这就是为什么每次他张开眼，发生的事都大体一样却又有所不同。第一次醒来时克里斯蒂娜告诉他她取消了某事，然后挂了个电话，并没有帮“肖恩”擦鞋上的可乐。第二次醒来时克里斯蒂娜告诉“肖恩”她注册了法律课并准备到印度去，没有电话响起，并且帮他擦了鞋上的可乐。影片中还有很多其他细节就不一一列举了。<br> 　　宇宙的分裂不断地进行并呈现进化树的模式，所有的可能宇宙都可以向后溯源到唯一初始点，但事件的发展却让宇宙相互分离并不再联系。这也就解释了为什么“肖恩”第一次在火车上打电话给Dr. Rutledge后，Rutledge无法收到他的电话留言，因为后一个Rutlegde并非由“肖恩”回去的那个宇宙发展而来。而后来“肖恩”发信息给 “戈德温”时她收到了他的信息，因为这时的她处于的宇宙位于“肖恩”发信息这一事件节点之后。 　<br> 　　从平行宇宙的进化树模式我们可以知道，影片中的Colter所拯救的只能是众多平行宇宙中的一个（这一个又会在拯救这一事件结束时分裂成众多）。但是我们可以设想，由安置炸弹事件发展而来的其他宇宙可能也有（也可能没有）这样一个Colter在执行这样一个任务。但进化树的模式却带来一个问题：所有的Colter都回到了同一个时间点的叠加态（可溯源，并且此源唯一），但这些Colter又拥有未来的记忆，于是当他们回到叠加态时会让此时这个Colter拥有各种各样未来可能宇宙的记忆并互相冲突。或者换一个说法，众多来自未来可能宇宙的Colter带着自身记忆进入了张开眼睛那一刻的Colter，此刻他不仅拥有多个灵魂（假设用灵魂这一形式），而且这些灵魂还来自同一个人。对这一逻辑问题，影片无法回答，因为其设想的返回机制本身就是不存在的，但这却引出了另一个问题。 </p><p>本体论：<br> 　　我是谁，存在是什么，到底是什么决定了我是我，上一时间单元的我到了下一时间单元还是那个我吗？这个问题在影片里的提出是Colter看到镜中的自己是另一副模样（Fentress的样子）那一刻，和Colter认为周围的一切是虚拟的影像。<br>　　<br> 　　要考虑这一问题可以从一颗辣椒开始。如果我是上海人，我可能觉得这辣椒特别辣，但我是重庆人，我很可能觉得它一点都不辣。那么到底他辣不辣呢？这取决于我的味蕾向大脑传递的信号。同一个道理，我可能看到这颗辣椒是红色，但一个红绿色盲可能会反驳说它是绿色。我可以找一大帮人来帮我证明我是对的，但如果全世界的人都是红绿色盲呢？那么似乎情况便成了这颗辣椒公认的颜色是绿色，而我才是红绿色盲。如此深究下去我们甚至可以直接质疑这辣椒的存在。我现在确证其存在不过是因为我能看到它，摸到它，尝到它等等。但归根到底这些不过是一堆感觉信号，可以设想利用计算机模拟出所有这些信号并向脑中传递，一个不存在的辣椒便活生生的出现在了我的观念之中。<br>　　<br> 　　如此推想我们似乎永远也无法确定眼前景象的真伪，而我们对于物质世界的确证感（对于唯物主义者）的唯一来源只能是罗素口中的“本能信仰”。因为根据奥坎姆剃刀原则，似乎没有必要假想一个复杂的由心灵构建的世界。 </p><p>弦论：<br> 　　那么，到底什么才是物质的根本性质呢？要回答这个问题，弦论是最佳候选理论。看过Big bang的同学对这个词都不会陌生，我们智商高达180的谢耳朵同学正是在抓破脑袋研究这个理论。此理论假设，宇宙的基本组成单位是一维弦，无数震荡着的一维弦或是这些弦形成的闭合圈相互共鸣，形成了三千世界，一花一木皆是共鸣所产生的象。可以通过一个比喻更加形象的说明。将一维弦比作是琴弦，当拨动琴弦时，其振动产生了音乐，并通过空气的谐振被我们听到。音乐便是象。它不是琴弦本身，更加不是空气，但我们确确实实听到了它。       </p><p> 　　小结：正如我们看到的一花一木，其非弦本身，却是弦所产生的象，似有还无。难怪佛曰：色即是空，空即是色。又曰：菩提本无树，明镜亦非台，本来无一物，何处惹尘埃。 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　佛祖有云：一步一生花，一花一世界&lt;/p&gt;
+&lt;p&gt;　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论信仰</title>
+    <link href="https://chenhg5.github.io/2015/08/02/2015-08-02-xinyang/"/>
+    <id>https://chenhg5.github.io/2015/08/02/2015-08-02-xinyang/</id>
+    <published>2015-08-02T04:00:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　从大学一年级到大学三年级即将大学四年级，时间过得很快。从前听着师兄调侃自己是大三大四的老油条，觉得好好笑，而今自己却也已经成为了众多老油条大军中的一员。</p><p>　　油条老了，还能吃吗？</p><p>　　吃是可以的，只是没那么好吃了。皱了，更油了。回想过去的自己是亮丽有锋芒的，如今呢？算得上“老奸巨猾”了。有时候看到大一的小鲜肉总会有一种莫名优越感，心里有一种冲动想过去拍拍他们的肩膀，说上一句，“你们还年轻呐，慢慢体会。”确实很多事情是看破不说破，如果你没有亲身体验过的话，单看表面可能觉得很深奥，但事后往往不是这样。大脑就是这么奇特，总能营造一种跟现实不一样的感觉，或期待，或崇拜。有如，信仰。</p><p>　　前几天，女票从一家互联网旅游公司辞职了。他们所属团队的人心涣散，很多人都想离开，然而很多人并没有离开。做运营的团队外在看起来很高大，毕竟作为有名气的互联网公司。但实际上是做着“兼职”感觉的工作。作为一名大三大四的有点资质的大学生，去做一份这样的工作显然是不好的。但因为不了解，希望更多的了解，而且工作有着对于大学生来说还不错的工资，所以在离开与不离开的选择上还是选择了留下。</p><p>　　她走了之后，很多人问她为什么离开，是不是这份工作不好。她都跟他们说不是，让他们加油。其实是不是，经历过才知道。看不看得到希望，也没人说得清楚。从局部到全局来看，你所被灌输的信念和斗志，不一定是“真”的。很可能你跨过了局部边界的那条线之后，你会发现这种斗志是无意义的，这时的你，就慢慢地变成所说的“老油条”。油条老矣，尚能思否？尚能进取否？</p><p>　　可以，你终究会找到新的信念，投入新的工作。但要明白的是，很可能我们跨越过的局部所进入的全局很可能只是一个更大的局部而已。在这个更大的局部中，我们被灌输以新的斗志新的信念，然后走上新的征程。</p><p>　　于是，不断的充满斗志，跨越局部，顿悟迷茫徘徊，充满斗志，跨越……何时我们能打破循环？</p><br><blockquote>“时间时间会给我答案。”</blockquote><br><br><p>　　也许回过头来，发现最大的局限是我们的内心，当跨越了内心的时候，就无所谓局部与全局了吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　从大学一年级到大学三年级即将大学四年级，时间过得很快。从前听着师兄调侃自己是大三大四的老油条，觉得好好笑，而今自己却也已经成为了众多老油条大军中的一员。&lt;/p&gt;
+
+&lt;p&gt;　　油条老了，还能吃吗？&lt;/p&gt;
+
+&lt;p&gt;　　吃是可以的，只是没那么好吃了。皱了，更油了。回想过去的
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>医德</title>
+    <link href="https://chenhg5.github.io/2014/02/19/2014-02-19-yide/"/>
+    <id>https://chenhg5.github.io/2014/02/19/2014-02-19-yide/</id>
+    <published>2014-02-19T09:46:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。<br>　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源于传业授道中的感受，也可能源于对死亡的恐惧，对亲情，友情，爱情的念重。但是可悲的是，这样的敬重，却可以在欲望和利益面前，吹灰而散。<br>　　复旦投毒案的犯人，查了资料，原本科毕业于中大医学院，更是出生于汕头的地道潮汕人。这样的身份，不得不让我感到诧异。他在面对采访时的冷酷，对于同样来自潮汕，就读于中大的我来说，可以得到解释，但是却不能接受。可以解释的原因是，借钱理群先生对此的观点，“我们的一些大学，正在培养一些‘精致的利己主义者，他们高智商、世俗、善于表演、懂得配合，更善于利用体制达到自己的目的。”林某拿生命来开玩笑，本身就已经丧失自身对生命的敬重了，这种丧失且不论是为什么，投毒室友，读此专业，应该知道此毒致命，投毒后既不破坏现场，也不销毁证据，死者父亲赶赴上海时，还能平静地与其同住宿舍，此人要不是丧心病狂，就是傻叉。研究生能是傻叉吗？在采访中，他承认他自己只是因为生了别人的气而迁怒于室友。这种迁怒甚至不是一时的，他是经过了理性的思考，辗转拿到毒药才投的毒，仿佛一个做实验的过程，而活生生的一条人命就此没了，其实没什么，就跟做实验一般，一只小白鼠死了罢了，可用则用之，不可用则丢掉。敢问哪个医学生在对小白鼠做实验前会双手合十，祷告一番，甚至为此落泪，估计无人。这样的实验做多了，久而久之，自然也就习以为常。小白鼠可爱的背后，其实也不过一些骨骼一些肉。<br>　　这种人就是中大的败类，枉曾为一个中大人。但你可曾知，他在中大时也是悲天悯人，慈悲为怀。发表着这样的感慨，却做着经过理性思考的丧心病狂之事。这种人病了，病因应是对生命敬重的缺失。善于表演，懂得配合。比如有一个人在五一二大地震发生时，面对着各种媒介上大家发表的悲伤的心情，附和一句，迎合一句，你可知他真是对生命有所敬重，你可有看见他流下了眼泪，也许他只不过想得到他人对他的认可罢了。他的一言一句，若非入到骨子里，你不会知道他内心究竟是一个怎样的人。善于表演，懂得配合。势利，还是真性情，你怎么会知道。<br>　　上次问诊于一位老中医，一位老中医把了诊，问了症状，就给我下药。当我有不同意见时，见我像不懂事的小孩纸，挥手便让我走。开的药不说有坏效果，中药总是有用的，只是无益于我的病。可是连病因都不知，也能开药？恕我愚昧，把诊应该不能把出器官里的情况吧。当然从纯理性角度，只是说，看病就像解题，我有难题不解，请教于医生，医生给出答案，却不给出过程。但令人不满的就在于，医生过于自大，不与我沟通，也不将其过程告知。 不可猜测，医生怎样去看待病人，但要将病人作为实验品，实验品自不用沟通，医生的自大其实是缺乏真诚的表现，乃至有些医生甚至于缺乏敬重。<br>　　医德尚且不正，则现在各种病人捅死医生的悲剧的发生就不难解释了。当然可能原因不一定在于医生，但一定在于缺乏沟通，至于是哪一方的缺乏，不得而知。<br>　　近日给我看病的一位医生，乃是好医生。好医生会与病人沟通，把病人当人看，做事有血有肉，真诚。真心为现在学医的各位同学感到辛苦，我觉得要想做一个好医生，真不容易。除了要有高超的医术，还要了解小医生是当地，大医生是各地的风俗习惯以及人的各种性格，这样才能做到真诚沟通。沟通之余，你还得时刻想着为病人开能在最短时间，最少痛苦下治好病人的最便宜的药方，三个未知量的方程，也不易解。除此之外，你要有上进心。更应该去竭力解答那些未解的难题，去发明一些新的治疗方法。在压力面前，好医生自然少了，被捅死的自然多了。因为这关乎的不仅是利益，还关乎生命，单单是利益就能要人命了。<br>　　所以没选择去当一个医生，是对的，也是错的。               </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　想吐槽医院和医生很久了，但是之前都是想想便过，没有落笔一抒的念头。看了央视对复旦投毒案犯人的采访后，我觉得内心有泻万里之言，不得不写。&lt;br&gt;　　人之对于生命的敬重，不能说与生俱来，应是在生活成长过程中慢慢体会得到的。这种敬重，可能是源于对社会道德和规则的约束，可能是源
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>道可道，德可得</title>
+    <link href="https://chenhg5.github.io/2014/01/29/2014-01-29-daode/"/>
+    <id>https://chenhg5.github.io/2014/01/29/2014-01-29-daode/</id>
+    <published>2014-01-29T02:05:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　“生活就像新闻联播，不是换台就能逃避的。”<br>　　看完了爱4最后两集，发现台词相当有爱。宣示立场，不卑不亢，爱4本色。谈笑风生之余，也不时嘲讽下举着主流文化牌子的痞子们。谁说播个广播一定要坐得端端正正，谁说录个节目一定不能穿裤衩，谁说播个新闻一定要一板一眼，这又不是新蚊连啵，又不是西西踢微，爱咋整咋整。亚文化这个词居然出现在爱4的台词中，真是扇了有关部门一记大大的耳光。<br>　　道可道，则德可得。<br>　　生活不能逃避，就不能选择，不能选择，何来自由，没有自由，何来理想希望同情，这些都没有，道德何用？爱4还没播完，转个台，看到安徽在播2013十大新闻人物，乍一看以为是中国十大感动人物，因为外表包装得都差不多，主持人，颁奖人，领奖人，颁奖词，催人泪下的背景乐，每个元素都少不了。想当年第一次看的时候，确实很感动，但是后来慢慢熟视而无睹。就像韩剧一样，车祸，绝症，治不好，同样的套路，屡用不止。观众是有大脑的，除了脑残的观众，看多了就会厌倦，厌倦了就会思考，为什么？这么伟大的人，现实生活中有吗？车祸，绝症，治不好，我长这么大就亲眼目睹过一次车祸，绝症和治不好压根就没看过。似乎韩剧和十大混在一起说了，其实我觉得差不多。助人为乐十多年，甚至付出了自己的生命，雷锋再现，这种人有吗？观众开始思考了，答案很肯定，没有。<br>　　但这些元素，我还没有厌倦，看看何妨。听听背景音乐还是相当动人。但是一些说辞就像鱼肉里面的鱼骨一样，令人讨厌。就像道德这个词，现在的人动不动就拿道德说事。每次都来宣示“主流”文化，愚弄混淆观众了。十大道德人物？道德这种东西，本就是统治者的统治工具。儒家的三纲五常，如今何在？文革时期的毛泽东语录，如今何在？民众无知，所以信以为真，以为道德是个好东西，所以接受。接受而来的道德是道德吗？不是，是规则而已。规则是约束人们，维护秩序的东西，跟法律一个样。统治者给人们的道德，不可道。不可道，则无德。<br>　　比道德更重要的是公知，是公民意识的觉醒。与其花这么大的资金力气去做什么十大人物，不如建设个好的制约制度，不如告诉人们，如果不捡起你脚边的纸张，你将得不到社会福利。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　“生活就像新闻联播，不是换台就能逃避的。”&lt;br&gt;　　看完了爱4最后两集，发现台词相当有爱。宣示立场，不卑不亢，爱4本色。谈笑风生之余，也不时嘲讽下举着主流文化牌子的痞子们。谁说播个广播一定要坐得端端正正，谁说录个节目一定不能穿裤衩，谁说播个新闻一定要一板一眼，这又不是
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>札记</title>
+    <link href="https://chenhg5.github.io/2014/01/10/2014-01-10-zaji/"/>
+    <id>https://chenhg5.github.io/2014/01/10/2014-01-10-zaji/</id>
+    <published>2014-01-10T03:22:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　已一年有余，离开我的高中。<br>　　还记得那个冷得令人瑟瑟发抖的冬天，每天早上都会去学校的操场上读书。那样的生活在今天是可望不可即了，如今每天面对的都是日渐温暖的被窝，无节制的生活节奏。困了睡，醒了学，倦了玩，饿了吃。复习对我来说再不是抢分，只是求过。这样的学习和生活，似乎走了和两年前完全不同的轨道，通向着不同的目的地。有师弟师妹跟我说他感到很困惑，因为不知道自己想做什么。我还能念念有词地跟他解释讲解，但是我自己真正想做什么，这个问题似乎从未浮现过。<br>　　如果说成长是知道自己想做什么的话，那我并未成长过。两年前的自己，目标如一，为高考奋斗。而今的自己，在选择面前，却无从入手。每每满怀热情，热情便戛然而止。外面的世界很美好，美好得你甚至不知道往哪里走。因为生怕走了错的路，遇到错的人，做了错的事。给这美好的世界献丑。其实，献丑还是自己的内心。就像那个有名的故事一样：</p><p>　　柏拉图有一天问老师苏格拉底什么是爱情，苏格拉底叫他到麦田走一次，要不回头地走，在途中要摘一棵最大最好的麦穗，但只可以摘一次，柏拉图觉得很容易，充满信心地出去，谁知过了半天他仍没有回去，最后，他垂头丧气出现在老师跟前诉说空手而回的原因：很难得看见一株看似不错的，却不知是不是最好，不得已，因为只可以摘一次，只好放弃，再看看有没有更好的，到发现已经走到尽头时，才发觉手上一棵麦穗也没有，这时，苏格拉底告诉他：“那就是爱情”。<br>　　柏拉图有一天又问老师苏格拉底什么是婚姻，苏格拉底叫他到彬树林走一次，要不回头地走，在途中要取一棵最好、最适合用来当圣诞树用的树材，但只可以取一次，柏拉图有了上回的教训，充满信心地出去，半天之后，他一身疲惫地拖了一棵看起来直挺、翠绿，却有点稀疏的杉树，苏格拉底问他：“这就是最好的树材吗？”，柏拉图回答老师：“因为只可以取一棵，好不容易看见一棵看似不错的又发现时间、体力已经快不够用了，也不管是不是最好的，所以就拿回来了。”<br>　　这时，苏格拉底告诉他：“那就是婚姻”。 </p><p>　　世界再美好，如果不用心去接受，一味的拾取放下拾取放下，那么美好也进不了自己的内心，贪得无厌只会让自己错失更多的美好。多久之前，还在热烈地迷恋着柴静的那句话，”给你自由，你不独立，仍是奴隶。“现在想想，似乎在过去的20个年头里，还未曾享受过独立，说自己是奴隶，其实言之过重了。寄生虫更为确切。我们都是生活的寄生虫，在现实面前寻找自己的满足，在生活的身上勾勒梦想。我们离不开这片现实的大地。很多轨迹都已经刻画好了，我们没有能力去另辟蹊径，必须按照原先的轨道行走，不然就很有可能会被现实的车轮碾压致死。可能会有侥幸逃生的，那些人都成了先驱者，开拓了自己的天地。但是其实还是寄生在生活之上，未曾逃离，不能逃离。<br>　　作为一个梦想主义者，这么多年的感悟，就是计划远远及不上变化。<br>　　再周全的计划，最终都会因为一个小小的变化而全盘皆毁。我们不是被计划推着走的，没有人是被计划推着走的，相反，一直推着我们前进的是变化。变化才是改变一个人命运最重要的因素。前天看了俞敏洪在《开讲吧》的讲话，更加深有体会。他从没想过会变成今天的自己，如果家境贫寒的你现在想想，自己将会变成一个亿万富翁，那绝对是天方夜谭。但是，也许你从没想过，然后一点点的行动，到最后未必就成了亿万富翁。因为家境贫寒，身处农村，要改变命运，就只能通过高考，所以就去了高考，因为高考差了一点分数，再拼一年或许能过，所以考了两年后意外进了北大，因为要养活自己，养活家人，没有资金无法出国，所以只有教书，因为要赚更多钱，所以只能开培训班，到最后，有了今天的新东方。究竟是自己的理想和计划推着自己在走，还是生活的变化推着自己在走？<br>　　谈梦想往往是没用的，不如谈谈你要怎么去面对变化，你要怎样好好地寄生在生活之上。</p><p>　　你想做什么，那就去做吧。因为你永远不知道生活会给你怎样的惊喜                  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　已一年有余，离开我的高中。&lt;br&gt;　　还记得那个冷得令人瑟瑟发抖的冬天，每天早上都会去学校的操场上读书。那样的生活在今天是可望不可即了，如今每天面对的都是日渐温暖的被窝，无节制的生活节奏。困了睡，醒了学，倦了玩，饿了吃。复习对我来说再不是抢分，只是求过。这样的学习和生活
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《放牛班的春天》观后感</title>
+    <link href="https://chenhg5.github.io/2013/10/17/2013-10-17-chuntian/"/>
+    <id>https://chenhg5.github.io/2013/10/17/2013-10-17-chuntian/</id>
+    <published>2013-10-16T17:46:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　早上醒来，打开窗户，外面阵阵凉意袭来。是那熟悉的入秋的味道。九点多，怕错过二饭的拉肠，匆匆洗脸刷牙出门。买了作业本回到宿舍继续做作业，没有早课的早上，适意而自在。坐下来一想，这个夏天好像真的太长太长了，长得以至于我都回想不起那种穿很厚很厚衣服的感觉了，好多个T恤短裤的日子冲淡了我对冬天的任何想法。可能是因为脚伤的缘故，夏天哪都没去，人一静止下来，时间仿佛就变慢了。接着又待了一个国庆，有时候时间慢得几乎静止了。我跟我自己聊天。也听不见时间前进的声音。<br>　　下午，没有午睡的下午，不想做作业，心情不知为什么，郁闷难耐。想到很多的比赛很多的作业，我就想逃避。“看电影吧。”我在心里想，为什么不呢。这时脑海里突然闪过一部电影的名字，《放牛班的春天》。很久之前就想看了，但是却没有找到很好的时机。或许，现在就是吧。“或许，现在就是吧。”<br>　　当我谈到放牛班的春天时，我该谈些什么。<br>　　我想起了我的小学，想起了我的初中，高中。那些熟悉的音乐，熟悉的场景，熟悉的感觉。小学时无拘无束的欢乐，有严肃可怕的校长，有胖墩墩的可爱的老师，初中时的纯真可爱，我们拿了第一的合唱团，还哼得出旋律的《校园的风》，高中时压抑沉闷的气氛，走廊上吃苹果仰望星空教室里浇花玩乌龟的点点自由，自习看课外书停电时大喊大叫挑战权威的快感，一切都还历历在目。这些回忆，原来都深藏在我的内心里，原以为忘记的事情，有时候会突然蹦出来给人一个惊喜。想到现在的处境，大学真是个巨大的谎言。当我听到克莱门特带着孩子们唱出的一首首合唱歌曲的时候，我真的忍不住我的眼泪。好久没有被这样深深地感动过了。当校园无比压抑的气氛快把大家逼疯的时候，合唱团的音乐就像一个个携带着希望的气球，把大家从现实带到了幸福的乐园。跳舞吧，运动吧，歌唱吧，就连严肃可怕的校长也加入到这场欢快的聚会当中。为什么要去隐藏自己，为什么要试着去保护自己，为什么不开怀大笑。放开自己去生活，才是真正的生活啊。<br>　　当现实压得你喘不过气时，想起这些孩子们的音乐，总会感觉生活还是充满希望，充满爱的。这些歌声是对幸福的渴求，是对爱的赞颂。在《放牛班的春天》中，我想起了另一部电影，《死亡诗社》，似乎是同样的环境，相同的剧情，不同的是，《死亡诗社》讲的是诗歌，《放牛班的合唱团》讲的是合唱。合唱可能比诗歌更加有表现力。它们都体现了藏在人类灵魂最深层次的那些渴求。高中的时候，我很喜欢读诗歌，对我来说，在早上的操场上大声地朗读诗歌是一件多么多么快乐的事。把诗歌变成一道道题目真的是对诗歌的侮辱。诗歌，只有你大声读出来的时候，你才能感受它的美。那种情感侵入到你的心灵，你的灵魂，你切身处地地到了作者生活的那个环境，感受他的感受，思考他的思考，那种感觉才是诗歌的魅力所在。尤其是当那种情感和你有了共鸣之后，你会深深地喜欢上那种感觉。当你只是看着诗歌，并试图去理解时，你是不可能感受到那种迷人的感觉的。<br>　　世界上最美的事情是邂逅。<br>　　当我渐渐涉入到世界的很多事情后，我发现人们很容易受很多东西的吸引和诱惑，但是艺术与真理依然是属于人们深层次的诉求。艺术与真理能震撼人的灵魂，能改变一个人。然而现在的教育还是不够重视艺术与真理，这是一件令人悲伤的事。如果我擅长音乐，我会愿意献身到教育的前线中，音乐真的有改变人的力量，如同诗歌，如同舞蹈，还有其他的艺术形式。</p><p>Vois sur ton chemin<br>看看你经过的路上<br>Gamins oubliés égarés<br>孩子们迷了路<br>Donne leur la main<br>向他们伸出手<br>Pour les mener<br>拉他们一把<br>Vers d’autres lendemains<br>步向往后的日子</p><p>Sens au coeur de la nuit<br>黑暗中的方向<br>L’onde d’espoir<br>希望之光<br>Ardeur de la vie<br>生命中的热忱<br>Sentier de gloire<br>荣耀之巷</p><p>Bonheurs enfantins<br>童年的欢乐<br>Trop vite oubliés effacés<br>转瞬消逝被遗忘<br>Une lumière dorée brille sans fin<br>一道绚烂金光<br>Tout au bout du chemin<br>在小道尽头闪亮</p><p>Sens au coeur de la nuit<br>黑暗中的方向<br>L’onde d’espoir<br>希望之光<br>Ardeur de la vie<br>生命中的热忱</p><p>sentier de la gloire<br>荣耀之巷</p><p>爱，凝聚了每一个人，欢乐，凝聚了每一个人。                 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　早上醒来，打开窗户，外面阵阵凉意袭来。是那熟悉的入秋的味道。九点多，怕错过二饭的拉肠，匆匆洗脸刷牙出门。买了作业本回到宿舍继续做作业，没有早课的早上，适意而自在。坐下来一想，这个夏天好像真的太长太长了，长得以至于我都回想不起那种穿很厚很厚衣服的感觉了，好多个T恤短裤的日
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>维度</title>
+    <link href="https://chenhg5.github.io/2013/07/26/2013-07-26-weidu/"/>
+    <id>https://chenhg5.github.io/2013/07/26/2013-07-26-weidu/</id>
+    <published>2013-07-26T13:37:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　曾经设想在一个静谧的午后，暖阳铺照大地，河水中泛着粼光，伦敦桥边，咖啡馆旁，喝着咖啡的场景。《冲上云霄二》第一集就出现了类似的场景。这种生活，优雅而恬静，确实令人羡慕。也许这些只是表象，也许像 skins 中那些泛滥着欲望的场景才是主流，但是依然不能替代我的感受。有如《再别康桥》的意境。    </p><blockquote><p>Very quietly I take my leave;<br>As quietly as I came here;<br>Quietly I wave good-bye;<br>To the rosy clouds in the western sky.</p></blockquote><p>　　前段日子才在电视上听闻英国王妃生了一个男孩，心里想着在与封建时代相去甚远的今天，英国王室的存在真是很神奇的一件事，我自然联想到一则新闻，一位记者问城建局人员一处建筑属不属于违建建筑时，那位城建局人员就说，那处老建筑属于“历史违建”建筑，记者便顺着问了一句“历史违建不属于违建吗？“，当时觉得好笑，加了历史二字就不是违建了吗？忘记城建局的人员怎么回答了，但是记得他答得滴水不漏，让记者无处刁难。顺着思考，便有所谓原罪的问题，历史的政治法律缺陷带来了原罪，而到了现在原罪难道就成了无罪吗？黄光裕的案子给了人们很大的警示。回到英国王室，虽说是王室，但其实也只是一种象征，没有实际的政治意义。所以，其所谓封建的性质也不复存在，固然可以称之为”历史封建“了。但是，它的存在也确具有当代意义。正如新闻接下去又讲的，估计英国王子的出生将给英国带来几亿的经济拉动发展。经济的驱动背后是更大的意义所在。也正是很多中国人目光所难以触及的。经济有时候不仅仅是经济。有时候也是文化。这就是我觉得的神奇的地方。英国王室代表了英国一种贵族的文化，跟整个国家的品质，给人的优雅而恬静的感觉，似乎就是息息相关的。<br>　　下午翻了翻以前的读书笔记，突然翻到了一篇《从富强到文雅》的笔记。文中说，中国历史上有过三次贵族时代，分别是，西周的氏族贵族时代，魏晋南北朝的门阀贵族时代，清朝部落贵族时代。但是这些时代都一一没落了，辛亥革命将中国的”贵“扫掉了，1949年后，”富“被扫掉了。而今，贵族精神在中国不复存在。象牙之塔瓦解和逍遥精神消失使得社会生活习俗，语言以及审美趣味都趋向粗鄙化。人们富了之后不知道该怎么办，缺少了精神引导。而这种精神就是贵族精神。<br>　　所谓贵族精神，文中写到，是经由少数人将绝大多数普通人创造的物质财富加以提炼而形成的一种比较精致的生活方式，生活态度，生活观念和生活品味。这是我们人类的精华。而它的缺失将是人类精神的高度缺失。举证这种缺失，中国的例子数不胜数，所谓炫富的行为存在便是很大佐证。记得在TED，杨澜演讲中，讲到炫富行为时，台下一片茫然的表情。不得不说这其实是社会发展过程中一种异乎寻常的病态表现，自然不会得到普遍的正常反应。反观英国，封建制度虽然”名存实亡“，但是王室的贵族精神却依然引领着国家的社会风潮，甚至可能成为富人的一种行为规范，生活方式。<br>　　这是一种自下而上，然后自上而下的维度。<br>　　大多数人参与制造的物质财富到了极少数人的顶端形成一种贵族精神再至上而下的扩散形成行为规范。使得社会常态化发展。这当然可以给很多诸如像我的中国人以羡慕之情，但是中国的路该怎么走，领导人也似乎该思索。正如背了许久的政治课本中的取其精华去其糟粕，中国该怎么去取精去糟这注定将困扰着转型期社会的上层领导者。<br>　　从另外一个维度去思考。<br>　　最近一直用photoshop做图片，这突破了我以前对图片的理解。我以前认为的，一张图片就是一部分一部分画上去的，正如我的外甥女经常在本子上按指示一部分一部分涂颜色。但在photoshop中，一张图片其实是用很多个图层叠加去制作的。它再不是我寻常认为的二维的平面，而已经是一种立体的存在。尽管最终出来的效果看起来像是一部分一部分画上去的。<br>　　而对于我们的社会，也是如此，并不是由很多方面组合而成的，而是由如经济，文化，政治等方面叠加而形成的组合体，它不是一个平面的存在，而是立体化地存在着。至于叠加后的效果是什么样的，这个估计只有尝试后才知道。就像我整天无聊在某一个图片上拉一个渐变或者加个背景或者其它，只是为了看看最终效果。我觉得人心也是如此的，可能不是鲜明的快乐与悲伤与其他的组合，而有时是快乐与悲伤与沮丧的叠加。又或许不是吧。</p><p>　　试着从不同维度去看问题，也许问题就会不一样。                  </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　曾经设想在一个静谧的午后，暖阳铺照大地，河水中泛着粼光，伦敦桥边，咖啡馆旁，喝着咖啡的场景。《冲上云霄二》第一集就出现了类似的场景。这种生活，优雅而恬静，确实令人羡慕。也许这些只是表象，也许像 skins 中那些泛滥着欲望的场景才是主流，但是依然不能替代我的感受。有如《
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>再论朴素的教育</title>
+    <link href="https://chenhg5.github.io/2013/07/07/2013-07-07-pusujiaoyu2/"/>
+    <id>https://chenhg5.github.io/2013/07/07/2013-07-07-pusujiaoyu2/</id>
+    <published>2013-07-07T12:31:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　如果说还能在中大发现一些朴素教育的痕迹，那么这点痕迹必然是存在于博雅学院的。<br>　　在“甘爹”的悉心经营下，中大博雅学院茁壮成长，09级的师兄师姐们在其庇护下于今年毕业了。 但只有4人到相关单位就业，而且其中一人认为自己找到工作还属幸运，这仍然让人感到些许忧虑。或许进入博雅学院就预备着将来要往学术方面发展。许多人还是选择了继续深造。原因是自己读的书还不够多。书到用时方恨少，就像我写文章一般，总是埋怨自己找不到好的素材，虚构的多，实际的少，写不出实质性的东西。师兄师姐们也是在写作论文之时感到自己所读甚少。这是大学之大幸啊！因为人们知道得越多，也就能发现自己未知的越多。因为正像某位伟人做的比喻一样，我们所知道事情的边界就是一个圆圈，圆圈外就是我们所不知的，当我们知道的越多，边界越大，我们才能发现我们所不知道的也越多。求知之心就是朴素教育之本。<br>　　且不论人们对就业与学术的不矛盾一面的忽略，对现实即金钱等的讨论似乎会把我塑造成一个偏激的愤世嫉俗的人，甚至推而为愤青，我无意于在物质与精神层面上投入我主观情感。过度地追求物质就会丢失对精神的追求，我并不赞同，过度追求精神而对物质追求欲望淡化甚至抑制，我也不赞同。人之所以为人，是因为人有高于动物的对所谓崇高的追求。但人之为一个正常的人，也正是应该有五情与六欲。在这个前提下，我们讨论现实，也只能用经济学的眼光去探讨了。正如经济中的自私人假设。那么所谓金钱及其运作，在社会层面上也不过是资源的分配与重组。在此只表明观点，不深入探讨，且搁置不谈。<br>　　回到朴素教育，之所以称博雅学院的教育有朴素教育的痕迹，是因为它重视学生的内在修养。只有启发了学生对真理的追求乐趣，才能使学生主动求知。而主动求知正是朴素教育的核心。<br>　　我推崇朴素教育，因为这样的教育方式保留了对真理的自由探索与一个哲学家对世界的好奇。以我现在的能力似乎探究不了这样的方式是否能实现提高社会资源的运作效率或者生产力的水平这个问题。但是凭借我对这种自由与好奇的向往，我认为，所谓大学应该是主张这种教育方式的。在古代，苏格拉底是极其推崇这种教育方式的，因为他们要培养哲学家和社会学，政治学家，培养对社会有影响的领导者。苏格拉底不会把自己熟知的东西直接教予学生，他会从师生熟知的事物开始，通过对话，提问和讨论等方式去揭示学生认知中的矛盾，使学生在老师的帮助下寻找正确的答案，得出正确的原理。谈话法是苏格拉底主要运用的方法。在后来，也有人运用了类似的教育方式。曾任哈佛法学院院长的克里斯托弗.哥伦布.郎得尔于19世纪末在哈佛大学首创的案例教学法，就继承了苏格拉底教学法中的独立思考和怀疑批判精神，使学生能够对各种法律问题进行深入思考，从而培养了学生分析和解决问题的能力。<br>　　案例教学法与朴素教育是息息相关的。因为案例教学法是一种执因索果式的教育方式，这种方式对学生的主观能动性要求较高，也体现了对真理的自由探索。<br>　　并不是说所有的学科都要采用朴素教育，因为这种教育方式功利性质不明显，效率可能较低，在古代大学即以追求真理为目的的教育学府，可能受用，但是在今日大学即以培养社会精英为目的的教育基地，可能不受用。在这样的预设前提下，功利性必然是大学的最大特征，即使校长的个人意志再强大，也无法阻止这种社会潮流，学科功利化教育必然是主流。即使某些学科可能会采用朴素的教育方式，也只是因为在评估体系中，时间等其他因素的介入使得朴素教育比功利化教育要成效大罢了。<br>在这种环境下，博雅学院似乎是在为仍然渴望追求真理的人挽回一些面子。<br>　　但是在尼采高呼上帝已死的100年后的今天仍然阻止不了下面这句话的诞生：<br>　　大学已死。                 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　如果说还能在中大发现一些朴素教育的痕迹，那么这点痕迹必然是存在于博雅学院的。&lt;br&gt;　　在“甘爹”的悉心经营下，中大博雅学院茁壮成长，09级的师兄师姐们在其庇护下于今年毕业了。 但只有4人到相关单位就业，而且其中一人认为自己找到工作还属幸运，这仍然让人感到些许忧虑。或许
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>论朴素的教育</title>
+    <link href="https://chenhg5.github.io/2013/07/03/2013-07-03-pusujiaoyu/"/>
+    <id>https://chenhg5.github.io/2013/07/03/2013-07-03-pusujiaoyu/</id>
+    <published>2013-07-03T01:17:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　喜欢钻牛角尖的人也就是创造力与好奇心尚且未被扼杀的人，他们会发现我们国家现代教育的特点。<br>　　当你在学习某件东西时，或许这么表述不当，应该是当你在被教育什么东西时，你总是会先被告诉有这种东西的存在，然后再去探讨关于这种东西的各种性质。譬如说，学习高数，当我们学到高斯定理的时候，老师会告诉我们有高斯定理这种东西的存在，让大家看看书本，然后再跟我们说高斯定理是怎么样的，怎么推出来的，当然这一点经常省略，而最重要的是怎么用的，因为这是考试的重点。<br>　　在我看来，这是一种执果索因的学习方式，或说教育方式。这样的教育，可称为华丽的教育，是极易抹杀掉学生的好奇心与创造力的。在这样的学习方式中，学生思考的空间很少，很多的东西都是从老师那里完完全全地继承过来的，他需要思考的只是怎样去理解这个东西。就好比说，前人们已经做好了一个蛋糕，然后作为后来学习者，你就得盯着餐桌上的蛋糕去思考蛋糕怎么做，怎么用。与自己亲手做一个蛋糕相比，自然是枯燥许多。执果索因的方式相当于告诉了孩纸们这个世界已经是这样了，然后你们要做的就是去理解这个世界为什么是这样的，是这样有什么好处。这样的前提，使得孩纸们不会再去考虑世界不是这样的情形。如此，又怎么能够思考一些变化呢？<br>　　苏格拉底说过，“我唯一知道的就是我一无所知。”<br>　　当这个世界实用主义越来越强，人们对现实压力的承受力越来越弱，同时人们也变得更加急功近利。大学已然渐渐地向职业培养学校靠拢。因为如果你采取的是朴素的教育，那么你“必然”在专业能力上要输于职业培养学校的人，那么到了社会也“必然”会被淘汰。是这样的吗？<br>　　我不知道大学里面的教育方式是谁制定的，是老师本身，还是校长等。但是作为一个大学，其教育方针是非常重要的，至少对于学生来说。老师承担着育人的作用，老师怎么教育直接影响了学生的成长。成为渣渣还是成为人才，与教育方式息息相关。<br>　　某一天时，刚巧在杂志上有人评说法国的高考题目。（懒得打字，贴图一张）                  </p><p>　　这会不会让很多尚未高考的孩子感到惊讶。可能他们看到这样的题目，还是觉得我们高考的题目出得好。至少知道怎么得分，而这些题目要怎么得分？是啊，要怎么得分？我们读书是为了得分，又不是为了获得智慧，不能得分，又有何用？大家都知道一个年代，五四时期，那时候的高考题目也与此类似，而那是一个大师辈出的年代。分数是为了用来培养能够中规中矩的职业精英，而智慧是为了培养引领社会风潮的领导者。<br>　　朴素的教育，在我看来是执因索果的学习教育方式。你对这个世界一无所知，然后你要试着去探索这个世界。像无数的大师一样，而老师只是一个引导者，他们会在恰当的时候点拨一下，而不是一个将全部知会给你的人。这时候，学习是一件极其有趣的事。因为你不知道你会遇到什么，可能你推导某个公式，建立某个数学模型的时候，就是创造了一个新的理论，可能不知不觉你就获得了诺贝尔奖。请不要觉得这句话很好笑，永远不要低估一个孩子的创造力，因为大人们对现实更加敏感往往及不上小孩。但是，中国现在还没有很多特别有创造力的孩子，这很可悲，因为中国的孩子必然是世界上所有国家中最多的。可想而知有多少孩子的创造力被扼杀了，幸存的很少。<br>　　有一节思修课，我去了。老师让上台的学生讲一讲什么是道德。结果很多学生说得条条是道，像初中的时候背政治一样，概念什么的说得非常好。就跟百度百科里面的一模一样。可是我相信我问一个问题，台上的学生可能答不上来，例如说道德在什么时候产生的。 在原始的时候肯定没有道德，所谓的道德在什么时候产生的呢？这个时候你必然得清楚语义上的道德是什么意思。一系列的问题你要去探究。<br>　　这也可以解释为什么国内有很多抄袭论文的现象。创造力枯竭。<br><img src="http://7xp1oz.com1.z0.glb.clouddn.com/psb.jpeg" alt="教育"><br>　　进入中大后，失落是不言而喻的。原来大学已然沦落，坚守探索真理和朴素教育方式的老师少之又少，难道要等到研究生才开始朴素教育，殊不知那时创造力已经不复存在。   </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　喜欢钻牛角尖的人也就是创造力与好奇心尚且未被扼杀的人，他们会发现我们国家现代教育的特点。&lt;br&gt;　　当你在学习某件东西时，或许这么表述不当，应该是当你在被教育什么东西时，你总是会先被告诉有这种东西的存在，然后再去探讨关于这种东西的各种性质。譬如说，学习高数，当我们学到高
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从致青春到合伙人</title>
+    <link href="https://chenhg5.github.io/2013/06/07/2013-06-07-qingchun/"/>
+    <id>https://chenhg5.github.io/2013/06/07/2013-06-07-qingchun/</id>
+    <published>2013-06-07T07:40:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　青春是一团饭团，小小一团，包有很多东西，可以捏成多种形状，很难消化，有很多种味道。它很新奇，很独特。但是吃了就没了，没有谁能永葆青春。人老了心态就会变，人格就会定型，是怎样就怎样。可能不会轻易悲伤，可能也不会轻易开心，不会动不动冲到麦当劳喝杯橙汁过了一晚，也不会无缘无故像个傻逼一样跑到天桥上大喊大叫，不会假装文艺的抱着吉他在路边乱弹，也不会认准了就算死都要做冒着大雨和闪电去宿舍楼贴海报。在青春的我们，一无所有，也无尽富有。在这青春无限的校园里，有无数无时无刻都在躁动的内心，有那些想要毁灭世界以证明自己存在的灵魂，试图挑战人类的底线，探究心灵的无限可能。还有那些宣言，死了都要爱，无极度的悲伤和极度的欢乐， 就无以证明生命存在过。像死亡诗社的那群青年们，藉着死亡的刺激，高呼着“seize the day！”，将青春的有关自由的幻想捧得极高极高，就算破灭，也有可能幻化成为彩虹。站在高地，昂起不屈的头颅，向着青春和生命致敬，“Oh captain，my captain！”<br>　　致青春，其实致的是过剩的荷尔蒙。<br>　　那是一部华丽丽的烂片，《致青春》，我没有看到自己青春的影子，看到的是一个倔得不行的女孩纸在大肆宣泄自己的爱情。拒绝与被拒绝，被拒绝与接受，这些可能性巧合地发生在了她的身上。一个女生的青春，有关爱情的一切。抛开那些狗屁不通的情节，致青春说出了很多人的共同心声，致我们终将逝去的青春。青春将逝，何事不可为？所以表白吧，所以奋斗吧，所以放荡自己的灵魂，所以挥霍自己的感性。以青春为噱头，消费着大众自身对青春的怀念与感伤。于是在那些镜头里，人们回忆起自己的青春，就会不自觉地想起自己在某时某刻某地也曾做类似的事。那就是青春，一代人共同的青春。每个人都有自己的青春故事，或平淡无奇，或激昂不已，或动心动性，或跌宕起伏。这些情节串连在一起，就成了一部属于自己的电影。<br>　　既然身处青春，那么就应该活出最真实的自己，何必假模假样？可是体制存在着。体制就像个魔鬼一样，钳制着我们的自由，浇灭了我们心中欲发的火焰。我们必须西装革履，我们必须抄袭作业，我们必须远离那些朴素的自由思考而服从有标准答案的八股“探究”，做自己不想做的事，违背自己的内心。是否还有人想念起死亡诗社，在黑夜里潜行到某个山洞，高声读出我们内心的诗词。当无聊成为这件事的答案时，青春已逝。最可怕的不是你已经不想做，不敢做，像个懦夫一样背弃自己的灵魂，向体制低头，最可怕的是你已经喜欢上体制，喜欢上被奴役。你不再是你自己，你的灵魂已经被磨成一块块一模一样的小石头，洒落在人们行走的道路上。<br>　　爱从没到来过，当你在等待的时候，因为它潜伏在你的心中，当你越发低头，越发回避，它就离你越远。沉默是扼杀所有念头的杀手。当你选择去爱，选择去牺牲，选择去为自己的青春负责，为灵魂负责的时候，你已经找回了自己，那些被钳制在平凡生活日程中的本该活跃着不一样的激情。如果所有人都已经丢失自己的灵魂，那便无所谓优秀，你内心所谓的优越感也只是凄凉的自我安慰罢了，因为你从未是你自己。<br>　　如果说致青春是讲女孩子的青春，那么中国合伙人讲的就是三个男孩子的青春。如果说女孩子的青春主题是爱情，那么男孩子的青春主题就是事业。如果说爱情是对人不对事的付出，那么事业就是对事不对人的奋斗。什么是事业，就是自己想要做的事。<br>　　人什么都可以丢失，就是不可以丢失自己的自尊。有些人一直在改变，有些人从未被改变。年轻时幻想无限，有多少师兄想要去开咖啡店，有多少师姐想要去开花店，最终都就了业，相了亲，结了婚。依稀记起《鳏恋》中那句话“曾经不想考中大，最后还是来了中大，曾经不想当那个什么什么员，最后还是当了那个什么员。”生活戏弄了我们，而我们放弃了自尊。在爱情中，我们甘愿被戏弄，在生活中，我们想逃避却逃避不了。看到了电影的68分钟，我才发现原来影片讲述的是俞敏洪的故事。其实影片似乎忘了交待一个背景，俞敏洪考了很多次才考进了燕京大学。俞敏洪爱情受挫，美国去不成，但是他却从没放弃过。如果有人抱怨创意的产生是一个概率事件，那么其实当你选择抛弃自尊的时候，概率就自动变为零了。从来都不要低估这种可能性，有时候就是一个想法，只要全心全意地去付出，就一定能做出大事业。因为我们年轻，我们无所畏惧，再困难的事，只要心想，就可以事成，就算失败，也曾经为之不懈奋斗过。<br>　　致青春——如果爱，请深爱。<br>　　合伙人——我不去想是否能够成功，既然选择了远方，便只顾风雨兼程。<br>　　从致青春到合伙人</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　青春是一团饭团，小小一团，包有很多东西，可以捏成多种形状，很难消化，有很多种味道。它很新奇，很独特。但是吃了就没了，没有谁能永葆青春。人老了心态就会变，人格就会定型，是怎样就怎样。可能不会轻易悲伤，可能也不会轻易开心，不会动不动冲到麦当劳喝杯橙汁过了一晚，也不会无缘无故
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[转]在怀疑的时代依然需要信仰——卢新宁</title>
+    <link href="https://chenhg5.github.io/2013/05/31/2013-05-31-faith/"/>
+    <id>https://chenhg5.github.io/2013/05/31/2013-05-31-faith/</id>
+    <published>2013-05-31T07:34:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>敬爱的老师和亲爱的同学们：<br>　　上午好！<br>　　谢谢你们叫我回家。让我有幸再次聆听老师的教诲，分享我亲爱的学弟学妹们的特殊喜悦。<br>　　一进家门，光阴倒转，刚才那些美好的视频，同学的发言，老师的讲话，都让我觉得所有年轻的故事都不曾走远。可是，站在你们面前，亲爱的同学们，我才发现，自己真的老了。1988年，我本科毕业的时候，你们中的绝大多数人还没有出生。那个时候你们的朗朗部长还是众女生仰慕的帅师兄，你们的渭毅老师正与我的同屋女孩爱得地老天荒。而现在他们的孩子都该考大学了。<br>　　就像刚才那首歌唱的，“记忆中最美的春天，难以再回首的昨天”。如果把生活比作一段将理想“变现”的历程，我们只是一叠面额有限的现钞，而你们是即将上市的股票。从一张白纸起步的书写，前程无远弗届，一切皆有可能。面对你们，我甚至缺少一分抒发“过来人”心得的勇气。<br>　　但我先生力劝我来，我的朋友也劝我来，他们都是84级的中文系学长。今天，他们有的仍然是一介文人，清贫淡泊；有的已经主政一方，功成名就；有的发了财做了“富二代”的爹，也有的离了婚、生活并不如意，但在网上交流时，听说有今天这样一个机会，他们都无一例外地让我一定要来，代表他们，代表那一代人，向自己的弟弟妹妹说点什么。<br>　　是的，跟你们一样，我们曾在中文系就读，甚至读过同一门课程，青涩的背影都曾被燕园的阳光，定格在五院青藤缠满的绿墙上。但那是上个世纪的事了，我们之间横亘着20多年的时光。那个时候我们称为理想的，今天或许你们笑称其为空想；那时的我们流行书生论政，今天的你们要面对诫勉谈话；那时的我们熟悉的热词是民主、自由，今天的你们记住的是“拼爹”、“躲猫猫”、“打酱油”；那个时候的我们喜欢在三角地游荡，而今天的你们习惯隐形于伟大的互联网。<br>　　我们那时的中国依然贫穷却豪情万丈，而今天这个世界第二大经济体，还在苦苦寻找迷失的幸福，无数和你们一样的青年喜欢用“囧”形容自己的处境。<br>　　20多年时光，中国到底走了多远？存放我们青春记忆的“三角地”早已荡然无存，见证你们少年心绪的“一塔湖图”正在创造新的历史。你们这一代人，有着远比我们当年更优越的条件，更广博的见识，更成熟的内心，站在更高的起点。<br>　　我们想说的是，站在这样高的起点，由北大中文系出发，你们不缺前辈大师的庇荫，更不少历史文化的熏染。《诗经》《楚辞》的世界，老庄孔孟的思想，李白杜甫的词章，构成了你们生命中最为激荡的青春时光。我不需要提醒你们，未来将如何以具体琐碎消磨这份浪漫与绚烂；也不需要提醒你们，人生将以怎样的平庸世故，消解你们的万丈雄心；更不需要提醒你们，走入社会，要如何变得务实与现实，因为你们终将以一生浸淫其中。<br>　　我唯一的害怕，是你们已经不相信了——不相信规则能战胜潜规则，不相信学场有别于官场，不相信学术不等于权术，不相信风骨远胜于媚骨。你们或许不相信了，因为追求级别的越来越多，追求真理的越来越少；讲待遇的越来越多，讲理想的越来越少；大官越来越多，大师越来越少。因此，在你们走向社会之际，我想说的只是，请看护好你曾经的激情和理想。在这个怀疑的时代，我们依然需要信仰。<br>　　也许有同学会笑话，大师姐写报社论写多了吧，这么高的调子。可如果我告诉各位，这是我的那些中文系同学，那些不管今天处于怎样的职位，遭遇过怎样的人生的同学共同的想法，你们是否会稍微有些重视？是否会多想一下为什么二十多年过去，他们依然如此？<br>　　我知道，与我们这一代相比，你们这一代人的社会化远在你们踏上社会之前就已经开始了，国家的盛世集中在你们的大学时代，但社会的问题也凸显在你们的青春岁月。你们有我们不曾拥有的机遇，但也有我们不曾经历的挑战。<br>　　文学理论无法识别毒奶粉的成分，古典文献挡不住地沟油的泛滥。当利益成为唯一的价值，很多人把信仰、理想、道德都当成交易的筹码，我很担心，“怀疑”会不会成为我们时代否定一切、解构一切的“粉碎机”？我们会不会因为心灰意冷而随波逐流，变成钱理群先生所言“精致利己主义”，世故老到，善于表演，懂得配合？而北大会不会像那个日本年轻人所说的，“有的是人才，却并不培养精英”？<br>　　我有一位清华毕业的同事，从大学开始，就自称是“北大的跟屁虫”。对北大人甚是敬重。谈到“大清王朝北大荒”江湖传言，他特认真地对我说：“这个社会更需要的，不是北大人的适应，而是北大人的坚守。”<br>　　这让我想起中文系百年时，陈平原先生的一席话。他提到西南联大时的老照片给自己的感动：一群衣衫褴褛的知识分子，器宇轩昂地屹立于天地间。这应当就是国人眼里北大人的形象。不管将来的你们身处何处，不管将来的你们从事什么职业，是否都能常常自问，作为北大人，我们是否还存有那种浩然之气？那种精神的魅力，充实的人生，“天地之心、生民之命、往圣绝学”，是否还能在我们心中激起共鸣？<br>　　马克思曾慨叹，法兰西不缺少有智慧的人但缺少有骨气的人。今天的中国，同样不缺少有智慧的人但缺少有信仰的人。也正因此，中文系给我们的教育，才格外珍贵。从母校的教诲出发，20多年社会生活给的我最大启示是：当许多同龄人都陷于时代的车轮下，那些能幸免的人，不仅因为坚强，更因为信仰。不用害怕圆滑的人说你不够成熟，不用在意聪明的人说你不够明智，不要照原样接受别人推荐给你的生活，选择坚守、选择理想，选择倾听内心的呼唤，才能拥有最饱满的人生。<br>　　梁漱溟先生写过一本书《这个世界会好吗？》。我很喜欢这个书名，它以朴素的设问提出了人生的大问题。这个世界会好吗？事在人为，未来中国的分量和质量，就在各位的手上。<br>　　最后，我想将一位学者的话送给亲爱的学弟学妹——无论中国怎样，请记得：你所站立的地方，就是你的中国；你怎么样，中国便怎么样；你是什么，中国便是什么；你有光明，中国便不再黑暗。<br>　　谢谢大家！                 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;敬爱的老师和亲爱的同学们：&lt;br&gt;　　上午好！&lt;br&gt;　　谢谢你们叫我回家。让我有幸再次聆听老师的教诲，分享我亲爱的学弟学妹们的特殊喜悦。&lt;br&gt;　　一进家门，光阴倒转，刚才那些美好的视频，同学的发言，老师的讲话，都让我觉得所有年轻的故事都不曾走远。可是，站在你们面前，亲爱
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从末日走到新年</title>
+    <link href="https://chenhg5.github.io/2013/01/03/2013-01-03-newyear/"/>
+    <id>https://chenhg5.github.io/2013/01/03/2013-01-03-newyear/</id>
+    <published>2013-01-03T04:43:00.000Z</published>
+    <updated>2015-12-09T18:39:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>　　2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。<br>　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着的人都坐下来回望起自己的2012，回望起那些经过一年光阴的磨洗也无法褪色的经历。<br>　　我想到的却是末日。<br>　　从末日走到新年，仿佛就是一瞬间的事情。我的时间观念对末日和新年的差求了一个趋向于零的极限。将一段时间无限压缩，其间的各种物体尽皆毁灭，留下了思想的灰烬在另外一个时空飘荡。思想的幽魂是我一直挥之不去的心悸。即使2013已经到来，我丝毫没有新生的喜悦。或许是因为没有对死的恐惧，所以也没有对生的惊喜。只是很平常地，像咀嚼着家常菜一般，品味着那些曾经让我很困惑，现在也只要想起便依然会让大脑充斥着硝烟味的话题——欲望，信仰，独立。<br>　　不知从什么时候开始，末日悄悄走进我们的生活。起初它只是一个茶余饭后的猜想，接着就慢慢地演化为一个场景，一部电影，还有一些颇为令人震撼的事实，而后来就成为了某些人生活中不可或缺的一部分——很多人开始了倒计时，到最后变成了一场群众性的狂欢——末日派对，末日烟花。末日成为了一个热点的文化名词，甚至变成了文化本身，谓之末日文化。人们之所以追崇末日，是因为它取代了人们生活的一部分，打乱了人们生活的节奏。如果没有末日，我们可能会例行公事地去打理自己的生活，如果没有末日，我们还是会把梦想挂在嘴边，如果没有末日，我们不会急切地希望知道某些曾经困惑的事情的答案，不会急切地去表达内心一些隐藏许久的情感，如果没有末日，一切都会很平静。末日像一辆横行的火车，挡住了我们前行的轨道。对于末日，有的人埋怨取笑，有的人却喜欢依赖，但几乎没有人害怕。其实即使有了末日预言的存在，我们也依然可以不受影响，因为我们心里都明白也相信末日预言的不科学。而问题就出在这里，理性的明白战胜不了感性的糊涂。有言道，难得糊涂。既然有那么一丝丝的可能，为什么不留下一丝丝的幻想呢，其实往往不止一丝丝。人就是这样，永远都不满足于现状，即使有那么一点突破常规的空间，或者一个宣泄的机会，都希望能够紧紧抓住，并将其无限放大，然后投入各种疯狂的想法。末日就是这样一个突破口。<br>　　而突破口落到我这儿就变成了一个信仰的问题。<br>　　在听某一次讲座的时候，一位教授讲的一句话触动了我的内心。他说，在这高度理性化的世界里，我们都是没有信仰的。我们信什么，信佛教吗？基督教？马克思主义？共产党？没有。我们对什么都不相信，除了科学，除了用理性能够延伸囊括的东西。信仰本是一个让人很欢欣鼓舞的词，但是一旦和缺乏联系起来，就会转变成一种让人心伤的力量。<br>　　我们都缺乏信仰。<br>　　这种信仰可能不是简单的一位上帝，一位天神，不是一件小小的物品，也不是一段历史，一位预言家或者一些神秘的现象，而是一种精神。我并非是有意要剥离精神和物质之间的关系。只是对于信仰，我更愿意用抽象的精神来安放它。这样子，信仰便可以轻易地和敬畏，和向往，和欲望联系在一起。我们缺少的不是可以信仰的物质，缺少的是心灵里留给信仰的空间。我们没有时间和空间信仰。忙碌在各种形形色色的生活中，应付着琐碎的事情，我们没有时间；理性的力量仿佛一个由很多脂肪构成的巨大的胖子，硬生生地挤进了我们的心灵，我们没有空间。信仰在日复一日的例行公事中慢慢地被遗忘，被丢失。<br>　　末日的那一晚，我一个人待在宿舍。突然间感到很空虚，这种极大极大的空虚在过往的日子很少有过。在一个没有计划的时间点，身边没人可以倾诉依赖，不知要干什么，也不知从何入手，外边人们在狂欢，感觉自己就像个异端分子，流离失所。<br>　　我没有了信仰。<br>　　信仰对一个人来说作用有多大，我不清楚。有时候，它就是一种生存的力量。当人们过度迷信时，它能把人带向愚昧，但有时，它也能够帮助人创造奇迹。少年派的信仰便是如此。<br>　　看了柴静采访李安的视频后，我对李安的老虎很感兴趣。老虎是李安在导演《少年派》中安放的老虎，也是存在他心灵中的老虎。我很后悔看了《少年派》的预告片。因为最后老虎并不存在的结局让我大为惊讶。我想要是我事先不知道这样一个结局而去看这部电影的话，我一定会深深地被其震撼。凭借着自己虚构的老虎，少年派在茫茫的大海中，与海浪搏击，与鲨鱼缠斗，最终存活了下来，这不得不说是一个奇迹。派所面对的老虎是摸不到触不着的，是存于他脑海中的物质，是他内心精神的具体化。应该说，老虎就是一种敬畏。就像很多人敬畏着上帝一样。我们需要敬畏，因着敬畏，所以对生活我们不敢怠慢，对困难我们不会畏惧，对成绩我们不敢傲慢自大。导演《少年派》对于李安来说是一次极大的挑战，当柴静问到他为什么会选择去接受挑战时，他说，因为他心中有一只老虎。<br>　　李安心中的老虎是什么？我不知道，也没人知道。但那一定是一种能够塑造人格的力量。<br>　　柴静有一句话使我感触颇深。柴静说，给你自由，你不独立，仍是奴隶。独立是一个很乐观向上的词。但是，独立也是一种不容易达到的状态。在我粗浅的思维里，独立被分为了三种：经济独立，心灵独立，人格独立。经济独立易于理解，心灵独立指的是人具有分析自己心灵和处理自己情绪的能力，至于人格独立，则是指一个人具有异于他人的品质等。一个人学会独立的过程，便是从一味依赖到有意识依赖，从因人成事到因己成事，从幼稚到成熟的过程。独立是检验人格精神的重要标准。有了自由，没有独立，依然没用，有了信仰，没有独立，也依然没用。独立不仅是社会的产物，也是一个人内心深处的最高级需求——自我发展的产物。</p><p>　　过去这段时间，我思考了很多，断断续续的，很多东西不断填补进我的大脑。因为我身上的缺点和优点交织着碰撞着不断影响我的心情，导致我在很多事情上都带有主观的想法。落笔很难，只是因为时机不对，成文很易，因为思想与感情汇合到了一个点。<br>　　从末日到新年，从独立到信仰。                 </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;　　2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。&lt;br&gt;　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

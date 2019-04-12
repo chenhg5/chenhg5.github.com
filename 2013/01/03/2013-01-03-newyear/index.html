@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着的人都坐下来回望起自己的2012，回望起那些经过一年光阴的磨洗也无法褪色的经历。　　我想到的却是末日。　　从末日走到新年，仿佛就是一瞬">
+<meta name="keywords" content="技术,GO,golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从末日走到新年">
+<meta property="og:url" content="https://chenhg5.github.io/2013/01/03/2013-01-03-newyear/index.html">
+<meta property="og:site_name" content="cg33">
+<meta property="og:description" content="2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着的人都坐下来回望起自己的2012，回望起那些经过一年光阴的磨洗也无法褪色的经历。　　我想到的却是末日。　　从末日走到新年，仿佛就是一瞬">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-12-09T18:39:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从末日走到新年">
+<meta name="twitter:description" content="2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着的人都坐下来回望起自己的2012，回望起那些经过一年光阴的磨洗也无法褪色的经历。　　我想到的却是末日。　　从末日走到新年，仿佛就是一瞬">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="cg33" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenhg5.github.io/2013/01/03/2013-01-03-newyear/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从末日走到新年 | cg33</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cg33</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/chenhg5" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenhg5.github.io/2013/01/03/2013-01-03-newyear/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cg33">
+      <meta itemprop="description" content="一个喜欢代码的小孩">
+      <meta itemprop="image" content="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cg33">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从末日走到新年
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-01-03 12:43:00" itemprop="dateCreated datePublished" datetime="2013-01-03T12:43:00+08:00">2013-01-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2015-12-10 02:39:43" itemprop="dateModified" datetime="2015-12-10T02:39:43+08:00">2015-12-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　2012年的最后一刻，我坐在电脑前。听着外面广场上人们疯狂地呼喊着的倒计时的声音，我的脑海里浮现出了诺亚方舟，冰河世纪4，丧尸，接着不加思考地，我敲了敲键盘，键入了几个字——我要去北京。<br>　　没过了多久，呼喊声慢慢消失，换之而来的是死一般的沉静。许多站着跳着舞动着的人都坐下来回望起自己的2012，回望起那些经过一年光阴的磨洗也无法褪色的经历。<br>　　我想到的却是末日。<br>　　从末日走到新年，仿佛就是一瞬间的事情。我的时间观念对末日和新年的差求了一个趋向于零的极限。将一段时间无限压缩，其间的各种物体尽皆毁灭，留下了思想的灰烬在另外一个时空飘荡。思想的幽魂是我一直挥之不去的心悸。即使2013已经到来，我丝毫没有新生的喜悦。或许是因为没有对死的恐惧，所以也没有对生的惊喜。只是很平常地，像咀嚼着家常菜一般，品味着那些曾经让我很困惑，现在也只要想起便依然会让大脑充斥着硝烟味的话题——欲望，信仰，独立。<br>　　不知从什么时候开始，末日悄悄走进我们的生活。起初它只是一个茶余饭后的猜想，接着就慢慢地演化为一个场景，一部电影，还有一些颇为令人震撼的事实，而后来就成为了某些人生活中不可或缺的一部分——很多人开始了倒计时，到最后变成了一场群众性的狂欢——末日派对，末日烟花。末日成为了一个热点的文化名词，甚至变成了文化本身，谓之末日文化。人们之所以追崇末日，是因为它取代了人们生活的一部分，打乱了人们生活的节奏。如果没有末日，我们可能会例行公事地去打理自己的生活，如果没有末日，我们还是会把梦想挂在嘴边，如果没有末日，我们不会急切地希望知道某些曾经困惑的事情的答案，不会急切地去表达内心一些隐藏许久的情感，如果没有末日，一切都会很平静。末日像一辆横行的火车，挡住了我们前行的轨道。对于末日，有的人埋怨取笑，有的人却喜欢依赖，但几乎没有人害怕。其实即使有了末日预言的存在，我们也依然可以不受影响，因为我们心里都明白也相信末日预言的不科学。而问题就出在这里，理性的明白战胜不了感性的糊涂。有言道，难得糊涂。既然有那么一丝丝的可能，为什么不留下一丝丝的幻想呢，其实往往不止一丝丝。人就是这样，永远都不满足于现状，即使有那么一点突破常规的空间，或者一个宣泄的机会，都希望能够紧紧抓住，并将其无限放大，然后投入各种疯狂的想法。末日就是这样一个突破口。<br>　　而突破口落到我这儿就变成了一个信仰的问题。<br>　　在听某一次讲座的时候，一位教授讲的一句话触动了我的内心。他说，在这高度理性化的世界里，我们都是没有信仰的。我们信什么，信佛教吗？基督教？马克思主义？共产党？没有。我们对什么都不相信，除了科学，除了用理性能够延伸囊括的东西。信仰本是一个让人很欢欣鼓舞的词，但是一旦和缺乏联系起来，就会转变成一种让人心伤的力量。<br>　　我们都缺乏信仰。<br>　　这种信仰可能不是简单的一位上帝，一位天神，不是一件小小的物品，也不是一段历史，一位预言家或者一些神秘的现象，而是一种精神。我并非是有意要剥离精神和物质之间的关系。只是对于信仰，我更愿意用抽象的精神来安放它。这样子，信仰便可以轻易地和敬畏，和向往，和欲望联系在一起。我们缺少的不是可以信仰的物质，缺少的是心灵里留给信仰的空间。我们没有时间和空间信仰。忙碌在各种形形色色的生活中，应付着琐碎的事情，我们没有时间；理性的力量仿佛一个由很多脂肪构成的巨大的胖子，硬生生地挤进了我们的心灵，我们没有空间。信仰在日复一日的例行公事中慢慢地被遗忘，被丢失。<br>　　末日的那一晚，我一个人待在宿舍。突然间感到很空虚，这种极大极大的空虚在过往的日子很少有过。在一个没有计划的时间点，身边没人可以倾诉依赖，不知要干什么，也不知从何入手，外边人们在狂欢，感觉自己就像个异端分子，流离失所。<br>　　我没有了信仰。<br>　　信仰对一个人来说作用有多大，我不清楚。有时候，它就是一种生存的力量。当人们过度迷信时，它能把人带向愚昧，但有时，它也能够帮助人创造奇迹。少年派的信仰便是如此。<br>　　看了柴静采访李安的视频后，我对李安的老虎很感兴趣。老虎是李安在导演《少年派》中安放的老虎，也是存在他心灵中的老虎。我很后悔看了《少年派》的预告片。因为最后老虎并不存在的结局让我大为惊讶。我想要是我事先不知道这样一个结局而去看这部电影的话，我一定会深深地被其震撼。凭借着自己虚构的老虎，少年派在茫茫的大海中，与海浪搏击，与鲨鱼缠斗，最终存活了下来，这不得不说是一个奇迹。派所面对的老虎是摸不到触不着的，是存于他脑海中的物质，是他内心精神的具体化。应该说，老虎就是一种敬畏。就像很多人敬畏着上帝一样。我们需要敬畏，因着敬畏，所以对生活我们不敢怠慢，对困难我们不会畏惧，对成绩我们不敢傲慢自大。导演《少年派》对于李安来说是一次极大的挑战，当柴静问到他为什么会选择去接受挑战时，他说，因为他心中有一只老虎。<br>　　李安心中的老虎是什么？我不知道，也没人知道。但那一定是一种能够塑造人格的力量。<br>　　柴静有一句话使我感触颇深。柴静说，给你自由，你不独立，仍是奴隶。独立是一个很乐观向上的词。但是，独立也是一种不容易达到的状态。在我粗浅的思维里，独立被分为了三种：经济独立，心灵独立，人格独立。经济独立易于理解，心灵独立指的是人具有分析自己心灵和处理自己情绪的能力，至于人格独立，则是指一个人具有异于他人的品质等。一个人学会独立的过程，便是从一味依赖到有意识依赖，从因人成事到因己成事，从幼稚到成熟的过程。独立是检验人格精神的重要标准。有了自由，没有独立，依然没用，有了信仰，没有独立，也依然没用。独立不仅是社会的产物，也是一个人内心深处的最高级需求——自我发展的产物。</p>
+<p>　　过去这段时间，我思考了很多，断断续续的，很多东西不断填补进我的大脑。因为我身上的缺点和优点交织着碰撞着不断影响我的心情，导致我在很多事情上都带有主观的想法。落笔很难，只是因为时机不对，成文很易，因为思想与感情汇合到了一个点。<br>　　从末日到新年，从独立到信仰。                 </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/07/12/2015-12-10-daxuezhida/" rel="next" title="[转] 钱理群:漫说大学之大——大学读什么">
+                <i class="fa fa-chevron-left"></i> [转] 钱理群:漫说大学之大——大学读什么
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/05/31/2013-05-31-faith/" rel="prev" title="[转]在怀疑的时代依然需要信仰——卢新宁">
+                [转]在怀疑的时代依然需要信仰——卢新宁 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg" alt="cg33">
+            
+              <p class="site-author-name" itemprop="name">cg33</p>
+              <div class="site-description motion-element" itemprop="description">一个喜欢代码的小孩</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+              <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                <ul class="links-of-blogroll-list">
+                  
+                  
+                    <li>
+                    
+                      <a href="/2018/07/09/mins-introduction/" title="Mins，一个mini版的restful api资源服务器" target="_blank">Mins，一个mini版的restful...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/07/golang-admin-dispatcher/" title="Go语言编写的web管理平台生成框架" target="_blank">Go语言编写的web管理平台生成框架</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/02/task-dispatcher-base-channel/" title="基于golang channel的轻量级异步任务分发器" target="_blank">基于golang channel的轻量级...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/05/05/micro-service-go-kit/" title="基于gokit的微服务项目骨架ko" target="_blank">基于gokit的微服务项目骨架ko</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/04/19/develop-a-alfred-workflow/" title="php脚本开发Alfred workflow" target="_blank">php脚本开发Alfred workfl...</a>
+                    
+                    </li>
+                  
+                  <li>
+                      ....
+                  </li>
+                </ul>
+              </div>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenhg5" title="GitHub &rarr; https://github.com/chenhg5" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:chg80333@gmail.com" title="E-Mail &rarr; mailto:chg80333@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+                
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cg33</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

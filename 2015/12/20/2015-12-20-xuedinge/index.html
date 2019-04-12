@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="佛祖有云：一步一生花，一花一世界 　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导演借以建立其故事架构的概念，若深入其中，则另有一番天地。 决定论（机械论）：　　影片故事的核心概念是平行宇宙，但要说到这个概念，首先要回答的">
+<meta name="keywords" content="技术,GO,golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]《源代码》：薛定谔定律里的那只猫">
+<meta property="og:url" content="https://chenhg5.github.io/2015/12/20/2015-12-20-xuedinge/index.html">
+<meta property="og:site_name" content="cg33">
+<meta property="og:description" content="佛祖有云：一步一生花，一花一世界 　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导演借以建立其故事架构的概念，若深入其中，则另有一番天地。 决定论（机械论）：　　影片故事的核心概念是平行宇宙，但要说到这个概念，首先要回答的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2015-12-20T13:54:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[转]《源代码》：薛定谔定律里的那只猫">
+<meta name="twitter:description" content="佛祖有云：一步一生花，一花一世界 　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导演借以建立其故事架构的概念，若深入其中，则另有一番天地。 决定论（机械论）：　　影片故事的核心概念是平行宇宙，但要说到这个概念，首先要回答的">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="cg33" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://chenhg5.github.io/2015/12/20/2015-12-20-xuedinge/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>[转]《源代码》：薛定谔定律里的那只猫 | cg33</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">cg33</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/chenhg5" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenhg5.github.io/2015/12/20/2015-12-20-xuedinge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cg33">
+      <meta itemprop="description" content="一个喜欢代码的小孩">
+      <meta itemprop="image" content="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cg33">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">[转]《源代码》：薛定谔定律里的那只猫
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-20 21:37:00 / 修改时间：21:54:43" itemprop="dateCreated datePublished" datetime="2015-12-20T21:37:00+08:00">2015-12-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　佛祖有云：一步一生花，一花一世界</p>
+<p>　　《源代码》这部影片，本没有太多好说的。其画面说不上震撼火爆，但很明快流畅，剧情算不上惊心动魄，却是跌宕起伏。若不去究其内里，大可以把它看成一部适合在电影院约上三五朋友，边嚼爆米花边看的标准商业片。其真正值得探讨的，是导演借以建立其故事架构的概念，若深入其中，则另有一番天地。</p>
+<p>决定论（机械论）：<br>　　影片故事的核心概念是平行宇宙，但要说到这个概念，首先要回答的一个问题是：什么是随机？举一个简单的例子，掷骰子普遍被认为是一种随机现象。因为它的结果无法预知，所以赌博的人都靠他来搏运气。但深入的考查后会发现其可能并不是一个随机事件。骰子落地得到的结果跟其起始条件和环境因素严格相关，若是能够准确控制投出的起始位子，角度，方向，空气流动，温度等所有因素，那么每次投出的结果便会一模一样。也就是说掷骰子这个看似随机的过程实际上很可能是一个确定的过程。<br>　　骰子如此，那么当然硬币也一样，计算机生成的随机数则是通过某种算法得到的伪随机数（通常与计时器相联系），如果以此深究下去，你会惊讶的发现所有你能想到的随机现象也许都是伪随机。每一个结果都是造成它的原因的结果，而它的原因，又是其自身原因的结果。花是注定要开的，因为那阵风带来了花蜜，风是注定要来的，因为远方的蝴蝶拍了拍翅膀（蝴蝶效应），蝴蝶是注定要拍翅膀的，因为另一只女蝴蝶正光着身子偏偏起舞。<br> 　　如此看来似乎一切都已注定，过去的原因决定了现在的结果，那么作为自认高等的人能够摆脱束缚，拥有自由吗？在决定论者看来，这是在自欺欺人。<br>自由意志：<br> 　　哲学上来说，人所能拥有的全部自由是选择的自由，也就是所谓的自由意志。当墨菲斯向尼奥摊开双手时，尼奥便开始行使这样的自由，但无论他吃下哪颗药丸，他的选择早已注定。人们会思前想后，考虑所有因素，作出决定，并执着的认为这是自己的决定。但仔细考虑一下，如果让人在一辆劳斯莱斯和一辆奥迪间选择，100个人中99个会选前者，而剩下的那个想要用他的选择来证明自身的自由，但这样做的他不仅首先受到了证明自身自由这一想法决定（而这一想法又是由于想要反向驳决定论这一冲动而来的，这一冲动又自有其原因）进行了反向选择从而正好证明了决定论，还损失了一辆劳斯莱斯。就如同《奠基》（又名《盗梦空间》）里所说的：当你试着不要去想大象的时候，你首先想到的便是大象。<br> 　　有人也许会想，如果面对两辆几乎一模一样的劳斯莱斯，唯一的不同是底盘上的一个字母，而选择者无法看到这个字母，那么选择者作出的选择不就不受其他因素支配的影响了事件的发展了吗？但若仔细考虑，选择者可能会因为偏爱方向右而顺手选择右边的一辆，而他的这种偏爱可能是小时候的某种创伤造成的信念固着。如此一来我们仍然可以说人并不存在自由意志，一切都已决定，只是我们无法了解。<br> 　　面对一个如此悲观的结论，大多数人难以平静。我们真的对自己无能为力吗？我饿了所以我吃了个面包，我冷了，所以我穿了件衣服，我长大性冲动了，所以我找了个老婆，我看了某本旅行日志或者某篇杂志上爱琴海的美丽风光，所以生出了环游世界的梦想。我们就这样被生活推着，随波逐流。我们是剧中的角色，编剧却另有其人，他只是轻轻推了推第一张骨牌，便创造了这大千世界。他是谁？有人说是上帝，有人说是安拉，但这又是另一个问题了。 </p>
+<p>量子理论：<br> 　　在18,19世纪，基于因果循环的拉普拉斯信条所建立的决定论统治着整个思想界。包括从牛顿到爱因斯坦的众多大家都是其信徒。然而，一场科学上的革命却为非决定论哲学带来了曙光。量子力学的建立在微观层面上质疑了宏观因果律，其提出处于所谓“叠加态”的微观粒子之状态是不确定的，从而将随机这一概念再次拉回我们眼前。<br> 　　举一个例子，通常我们认为原子核之外有电子围绕，然而根据量子力学，这些电子并不是像地球绕着太阳转一样围着原子核绕圈，它可能出现在核周围任意位置中的一个，或者说这一个电子同时出现在他可能出现的位置。只有通过观察，我们才能决定其状态，然而令人蛋疼的是观察又改变了其状态。那么在观察之前电子到底处于什么状态呢？这个问题的蛋疼程度可以通过一个比喻来说明：你来我家做客，我在不在家呢？当你打开门的时候你才能确定我在不在，但在开门之前，我处于什么状态呢？这时我有多个分身，可能在家，可能在学校，可能在路上。我同时处于所有可能处于的位置的叠加态，直到你开门看了一眼，于是我的位置确定了。 </p>
+<p>薛定谔的猫：<br> 　　这样的事情别说你想不通，无数物理学家和哲学家都抓破了头，于是薛定谔想出了一个思想实验：将一只猫关在箱子里，箱内还置有一小块铀、一个盛有毒气的玻璃瓶，以及一套受检测器控制的、由锤子构成的执行机构。铀是不稳定的元素，衰变时放出射线触发检测器，驱动锤子击碎玻璃瓶，释放出毒气将猫毒死。铀未衰变前，毒气未放出，猫是活的。铀原子在何时衰变是不确定的，所以它处于叠加态。薛定谔挖苦说：在箱子未打开进行观测前，按照量子力学的解释，箱中之猫处于 “死－活叠加态”——既死了又活着，要等有人打开箱子看一眼才能决定猫的生死。用量子力学的术语来说，在打开箱子那一刻，因为你看了一眼，波函数塌陷了。这简直匪夷所思，微观的混沌变为宏观的荒谬——猫要么死了，要么活着，两者必居其一，不可能同时既死又活。难怪霍金听到薛定谔猫佯谬时说：“我去拿枪把猫打死！” </p>
+<p>平行宇宙：<br> 　　对于这只令人蛋疼的猫和波函数的塌陷，一个合理的解释是宇宙在此刻分裂了。在这一刻，所有的可能性同时发生于分裂出的平行宇宙之中，猫在一些宇宙中死了，而在另一些宇宙中活着。这一解释是对决定论的重大打击，其假设了微观的不确定性不仅仅影响微观，这种不确定的叠加态让我们在事件发生的那一刻进入了众多可能宇宙中的一个，难怪佛曰：一花一世界。<br> 　　在《源代码》里，主角柯尔特·斯蒂文斯上尉便是通过Dr. Rutledge发明的某种装置用Fentress的残留脑波量子力场（电影中的假想）一次次的回到“肖恩”睡醒睁开眼那一刻的叠加态上并进入众多平行可能宇宙中的一个。这就是为什么每次他张开眼，发生的事都大体一样却又有所不同。第一次醒来时克里斯蒂娜告诉他她取消了某事，然后挂了个电话，并没有帮“肖恩”擦鞋上的可乐。第二次醒来时克里斯蒂娜告诉“肖恩”她注册了法律课并准备到印度去，没有电话响起，并且帮他擦了鞋上的可乐。影片中还有很多其他细节就不一一列举了。<br> 　　宇宙的分裂不断地进行并呈现进化树的模式，所有的可能宇宙都可以向后溯源到唯一初始点，但事件的发展却让宇宙相互分离并不再联系。这也就解释了为什么“肖恩”第一次在火车上打电话给Dr. Rutledge后，Rutledge无法收到他的电话留言，因为后一个Rutlegde并非由“肖恩”回去的那个宇宙发展而来。而后来“肖恩”发信息给 “戈德温”时她收到了他的信息，因为这时的她处于的宇宙位于“肖恩”发信息这一事件节点之后。 　<br> 　　从平行宇宙的进化树模式我们可以知道，影片中的Colter所拯救的只能是众多平行宇宙中的一个（这一个又会在拯救这一事件结束时分裂成众多）。但是我们可以设想，由安置炸弹事件发展而来的其他宇宙可能也有（也可能没有）这样一个Colter在执行这样一个任务。但进化树的模式却带来一个问题：所有的Colter都回到了同一个时间点的叠加态（可溯源，并且此源唯一），但这些Colter又拥有未来的记忆，于是当他们回到叠加态时会让此时这个Colter拥有各种各样未来可能宇宙的记忆并互相冲突。或者换一个说法，众多来自未来可能宇宙的Colter带着自身记忆进入了张开眼睛那一刻的Colter，此刻他不仅拥有多个灵魂（假设用灵魂这一形式），而且这些灵魂还来自同一个人。对这一逻辑问题，影片无法回答，因为其设想的返回机制本身就是不存在的，但这却引出了另一个问题。 </p>
+<p>本体论：<br> 　　我是谁，存在是什么，到底是什么决定了我是我，上一时间单元的我到了下一时间单元还是那个我吗？这个问题在影片里的提出是Colter看到镜中的自己是另一副模样（Fentress的样子）那一刻，和Colter认为周围的一切是虚拟的影像。<br>　　<br> 　　要考虑这一问题可以从一颗辣椒开始。如果我是上海人，我可能觉得这辣椒特别辣，但我是重庆人，我很可能觉得它一点都不辣。那么到底他辣不辣呢？这取决于我的味蕾向大脑传递的信号。同一个道理，我可能看到这颗辣椒是红色，但一个红绿色盲可能会反驳说它是绿色。我可以找一大帮人来帮我证明我是对的，但如果全世界的人都是红绿色盲呢？那么似乎情况便成了这颗辣椒公认的颜色是绿色，而我才是红绿色盲。如此深究下去我们甚至可以直接质疑这辣椒的存在。我现在确证其存在不过是因为我能看到它，摸到它，尝到它等等。但归根到底这些不过是一堆感觉信号，可以设想利用计算机模拟出所有这些信号并向脑中传递，一个不存在的辣椒便活生生的出现在了我的观念之中。<br>　　<br> 　　如此推想我们似乎永远也无法确定眼前景象的真伪，而我们对于物质世界的确证感（对于唯物主义者）的唯一来源只能是罗素口中的“本能信仰”。因为根据奥坎姆剃刀原则，似乎没有必要假想一个复杂的由心灵构建的世界。 </p>
+<p>弦论：<br> 　　那么，到底什么才是物质的根本性质呢？要回答这个问题，弦论是最佳候选理论。看过Big bang的同学对这个词都不会陌生，我们智商高达180的谢耳朵同学正是在抓破脑袋研究这个理论。此理论假设，宇宙的基本组成单位是一维弦，无数震荡着的一维弦或是这些弦形成的闭合圈相互共鸣，形成了三千世界，一花一木皆是共鸣所产生的象。可以通过一个比喻更加形象的说明。将一维弦比作是琴弦，当拨动琴弦时，其振动产生了音乐，并通过空气的谐振被我们听到。音乐便是象。它不是琴弦本身，更加不是空气，但我们确确实实听到了它。       </p>
+<p> 　　小结：正如我们看到的一花一木，其非弦本身，却是弦所产生的象，似有还无。难怪佛曰：色即是空，空即是色。又曰：菩提本无树，明镜亦非台，本来无一物，何处惹尘埃。 </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/02/2015-08-02-xinyang/" rel="next" title="论信仰">
+                <i class="fa fa-chevron-left"></i> 论信仰
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/23/2015-12-23-bameifa/" rel="prev" title="[转]科学把妹法">
+                [转]科学把妹法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNc79ly1g1zoir2k2rj308p08p763.jpg" alt="cg33">
+            
+              <p class="site-author-name" itemprop="name">cg33</p>
+              <div class="site-description motion-element" itemprop="description">一个喜欢代码的小孩</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+              <div class="links-of-blogroll motion-element links-of-blogroll-block">
+                <ul class="links-of-blogroll-list">
+                  
+                  
+                    <li>
+                    
+                      <a href="/2018/07/09/mins-introduction/" title="Mins，一个mini版的restful api资源服务器" target="_blank">Mins，一个mini版的restful...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/07/golang-admin-dispatcher/" title="Go语言编写的web管理平台生成框架" target="_blank">Go语言编写的web管理平台生成框架</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/07/02/task-dispatcher-base-channel/" title="基于golang channel的轻量级异步任务分发器" target="_blank">基于golang channel的轻量级...</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/05/05/micro-service-go-kit/" title="基于gokit的微服务项目骨架ko" target="_blank">基于gokit的微服务项目骨架ko</a>
+                    
+                    </li>
+                  
+                    <li>
+                    
+                      <a href="/2018/04/19/develop-a-alfred-workflow/" title="php脚本开发Alfred workflow" target="_blank">php脚本开发Alfred workfl...</a>
+                    
+                    </li>
+                  
+                  <li>
+                      ....
+                  </li>
+                </ul>
+              </div>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chenhg5" title="GitHub &rarr; https://github.com/chenhg5" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:chg80333@gmail.com" title="E-Mail &rarr; mailto:chg80333@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+                
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cg33</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
